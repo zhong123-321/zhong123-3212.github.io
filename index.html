@@ -1,0 +1,3656 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>九型人格成长手册 - 职场人际关系与团队协作指南</title>
+    <!-- Tailwind CSS v3 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
+    <!-- 统一的 Tailwind 配置 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1a56db',
+                        secondary: '#e2e8f0',
+                        accent: '#3b82f6',
+                        type1: '#ef4444',
+                        type2: '#f97316',
+                        type3: '#eab308',
+                        type4: '#8b5cf6',
+                        type5: '#3b82f6',
+                        type6: '#10b981',
+                        type7: '#f43f5e',
+                        type8: '#22c55e',
+                        type9: '#0ea5e9'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-in-out',
+                        'slide-in': 'slideIn 0.5s ease-in-out',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideIn: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+            }
+            .card-hover {
+                @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+            }
+            .btn-primary {
+                @apply bg-primary text-white px-6 py-2 rounded-lg hover:bg-opacity-90 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50;
+            }
+            .btn-secondary {
+                @apply bg-secondary text-gray-700 px-6 py-2 rounded-lg hover:bg-gray-300 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-opacity-50;
+            }
+            .nav-link {
+                @apply flex items-center gap-2 px-4 py-3 rounded-lg transition-all duration-300;
+            }
+            .nav-link.active {
+                @apply bg-primary text-white;
+            }
+            .nav-link:not(.active) {
+                @apply hover:bg-gray-100;
+            }
+            .type-badge {
+                @apply inline-block px-3 py-1 rounded-full text-sm font-medium;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <div class="flex flex-col md:flex-row min-h-screen">
+        <!-- 侧边导航栏 -->
+        <aside class="w-full md:w-64 bg-white shadow-md md:min-h-screen p-4">
+            <div class="flex flex-col items-center justify-center md:items-start md:justify-start mb-8 mt-2">
+                <div class="flex items-center">
+                    <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/fe773f5bf990428b87b33976674f119b~tplv-a9rns2rl98-image.image?rcl=2025111601301505FC3E7435B65AE29F60&rk3s=8e244e95&rrcfp=f06b921b&x-expires=1765819838&x-signature=0XvWj%2FjWQNXyuSIuIVnSjBd92Qo%3D" alt="九型人格图标" class="w-10 h-10 mr-2">
+                    <h1 class="text-xl font-bold text-gray-800">九型人格成长手册</h1>
+                </div>
+                <p class="text-sm text-primary font-medium mt-1">星芒测评社 出品</p>
+            </div>
+            
+            <nav class="space-y-2">
+                <a href="#home" class="nav-link active" data-section="home">
+                    <i class="fa fa-home w-5 text-center"></i>
+                    <span>首页</span>
+                </a>
+                <a href="#test" class="nav-link" data-section="test">
+                    <i class="fa fa-clipboard-check w-5 text-center"></i>
+                    <span>九型人格测试</span>
+                </a>
+                <a href="#types" class="nav-link" data-section="types">
+                    <i class="fa fa-user-circle w-5 text-center"></i>
+                    <span>人格类型详解</span>
+                </a>
+                <a href="#relationships" class="nav-link" data-section="relationships">
+                    <i class="fa fa-comments w-5 text-center"></i>
+                    <span>人际关系改善</span>
+                </a>
+                <a href="#career" class="nav-link" data-section="career">
+                    <i class="fa fa-briefcase w-5 text-center"></i>
+                    <span>职场角色适配</span>
+                </a>
+                <a href="#team" class="nav-link" data-section="team">
+                    <i class="fa fa-users w-5 text-center"></i>
+                    <span>团队协作定位</span>
+                </a>
+            </nav>
+            
+            <div class="mt-auto pt-8">
+                <div class="text-center md:text-left text-sm text-gray-500">
+                    <p>© 2025 九型人格成长手册</p>
+                    <p class="mt-1">助您在职场中找到最佳定位</p>
+                </div>
+                <div class="mt-4 text-center">
+                    <button id="save-all-data" class="text-primary hover:underline text-sm flex items-center justify-center">
+                        <i class="fa fa-save mr-1"></i> 保存所有数据
+                    </button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- 主内容区 -->
+        <main class="flex-1 overflow-x-hidden">
+            <!-- 首页 -->
+            <section id="home" class="section active min-h-screen flex flex-col items-center justify-center p-4 bg-gradient-to-br from-blue-50 to-blue-100">
+                <div class="max-w-4xl mx-auto text-center">
+                    <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/7bc76178b39b47b09b27d41cd29356b0~tplv-a9rns2rl98-image.image?rcl=2025111601301505FC3E7435B65AE29F60&rk3s=8e244e95&rrcfp=f06b921b&x-expires=1765819831&x-signature=3NXOUTGv16DVXdTkn3YKjzYDXik%3D" alt="九型人格测试" class="w-64 h-64 mx-auto mb-8">
+                    <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-2">九型人格成长手册</h1>
+                    <p class="text-lg text-primary font-medium mb-6">星芒测评社 出品</p>
+                    <p class="text-xl text-gray-600 mb-8">探索自我，改善人际关系，优化职场表现</p>
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <a href="#test" class="btn-primary text-lg" data-navigate="test">开始测试</a>
+                        <a href="#types" class="btn-secondary text-lg" data-navigate="types">了解人格类型</a>
+                    </div>
+                </div>
+                
+                <div class="max-w-6xl mx-auto mt-20 grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white rounded-xl shadow-md p-6 card-hover">
+                        <div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                            <i class="fa fa-clipboard-check text-primary text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">专业测试</h3>
+                        <p class="text-gray-600">通过科学问卷评估您的九型人格类型，了解您的核心动机和行为模式。</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-md p-6 card-hover">
+                        <div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                            <i class="fa fa-book text-primary text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">深度解析</h3>
+                        <p class="text-gray-600">深入了解每种人格类型的特点、优势、挑战以及在不同情境下的表现。</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-md p-6 card-hover">
+                        <div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                            <i class="fa fa-lightbulb-o text-primary text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">实用指南</h3>
+                        <p class="text-gray-600">获取针对性的人际关系改善建议和职场角色适配方案，提升个人成长。</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 九型人格测试 -->
+            <section id="test" class="section hidden p-6 bg-white min-h-screen">
+                <div class="max-w-4xl mx-auto">
+                    <h2 class="text-3xl font-bold mb-6 text-gray-800">九型人格测试</h2>
+                    <p class="text-gray-600 mb-8">本测试包含45道题目，旨在评估您的九型人格类型。请根据您的真实情况和感受进行选择。</p>
+                    
+                    <div id="test-intro" class="mb-8">
+                        <div class="bg-blue-50 border-l-4 border-primary p-4 mb-6">
+                            <p class="text-gray-700"><strong>测试说明：</strong>请仔细阅读每道题目，选择最符合您真实情况的选项。测试时间约为10分钟，请在不受干扰的环境下完成。</p>
+                        </div>
+                        <div class="flex justify-center">
+                            <button id="start-test" class="btn-primary text-lg">开始测试</button>
+                        </div>
+                    </div>
+                    
+                    <div id="test-container" class="hidden">
+                        <div class="mb-4 flex justify-between items-center">
+                            <div class="text-sm text-gray-500">问题 <span id="current-question">1</span>/45</div>
+                            <div class="w-1/2 bg-gray-200 rounded-full h-2.5">
+                                <div id="progress-bar" class="bg-primary h-2.5 rounded-full" style="width: 2.22%"></div>
+                            </div>
+                            <div class="text-sm text-gray-500">完成度: <span id="progress-percent">2%</span></div>
+                        </div>
+                        
+                        <div id="question-card" class="bg-white rounded-xl shadow-md p-6 mb-6 animate-fade-in">
+                            <h3 id="question-text" class="text-xl font-medium mb-4">在团队工作中，我更倾向于：</h3>
+                            <div class="space-y-3">
+                                <div class="option flex items-center p-3 border rounded-lg hover:bg-gray-50 cursor-pointer" data-score="1">
+                                    <input type="radio" name="question" id="option-1" class="mr-3">
+                                    <label for="option-1">确保所有细节都正确无误</label>
+                                </div>
+                                <div class="option flex items-center p-3 border rounded-lg hover:bg-gray-50 cursor-pointer" data-score="2">
+                                    <input type="radio" name="question" id="option-2" class="mr-3">
+                                    <label for="option-2">支持和帮助团队成员</label>
+                                </div>
+                                <div class="option flex items-center p-3 border rounded-lg hover:bg-gray-50 cursor-pointer" data-score="3">
+                                    <input type="radio" name="question" id="option-3" class="mr-3">
+                                    <label for="option-3">专注于实现目标和取得成果</label>
+                                </div>
+                                <div class="option flex items-center p-3 border rounded-lg hover:bg-gray-50 cursor-pointer" data-score="4">
+                                    <input type="radio" name="question" id="option-4" class="mr-3">
+                                    <label for="option-4">提出创新和独特的想法</label>
+                                </div>
+                                <div class="option flex items-center p-3 border rounded-lg hover:bg-gray-50 cursor-pointer" data-score="5">
+                                    <input type="radio" name="question" id="option-5" class="mr-3">
+                                    <label for="option-5">分析信息并保持客观</label>
+                                </div>
+                                <div class="option flex items-center p-3 border rounded-lg hover:bg-gray-50 cursor-pointer" data-score="6">
+                                    <input type="radio" name="question" id="option-6" class="mr-3">
+                                    <label for="option-6">谨慎考虑可能的风险和问题</label>
+                                </div>
+                                <div class="option flex items-center p-3 border rounded-lg hover:bg-gray-50 cursor-pointer" data-score="7">
+                                    <input type="radio" name="question" id="option-7" class="mr-3">
+                                    <label for="option-7">寻找新的机会和可能性</label>
+                                </div>
+                                <div class="option flex items-center p-3 border rounded-lg hover:bg-gray-50 cursor-pointer" data-score="8">
+                                    <input type="radio" name="question" id="option-8" class="mr-3">
+                                    <label for="option-8">主导决策并掌控局面</label>
+                                </div>
+                                <div class="option flex items-center p-3 border rounded-lg hover:bg-gray-50 cursor-pointer" data-score="9">
+                                    <input type="radio" name="question" id="option-9" class="mr-3">
+                                    <label for="option-9">促进团队和谐与共识</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex justify-between">
+                            <button id="prev-question" class="btn-secondary opacity-50 cursor-not-allowed" disabled>上一题</button>
+                            <button id="next-question" class="btn-primary">下一题</button>
+                        </div>
+                    </div>
+                    
+                    <div id="test-result" class="hidden">
+                        <div class="bg-white rounded-xl shadow-md p-8 mb-8">
+                            <h3 class="text-2xl font-bold mb-6 text-center">测试结果</h3>
+                            
+                            <div class="mb-8">
+                                <canvas id="result-chart" height="250"></canvas>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <h4 class="text-xl font-semibold mb-3">您的主要人格类型是：</h4>
+                                <div id="primary-type" class="bg-blue-50 p-4 rounded-lg">
+                                    <div class="flex items-center">
+                                        <div class="w-12 h-12 bg-type3 rounded-full flex items-center justify-center mr-4">
+                                            <span class="text-white font-bold text-xl">3</span>
+                                        </div>
+                                        <div>
+                                            <h5 class="text-xl font-bold">成就型</h5>
+                                            <p class="text-gray-600">目标导向、高效务实、善于表现</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <h4 class="text-lg font-semibold mb-2">测试结果解读：</h4>
+                                <p class="text-gray-600 mb-4">您的测试结果显示，您最倾向于成就型人格。成就型的人通常具有强烈的目标感和行动力，渴望成功和被认可。他们善于适应环境，能够根据不同的情境调整自己的表现，以达到最佳效果。</p>
+                                <p class="text-gray-600">在工作中，您可能表现出高效、务实和结果导向的特点，善于激励自己和他人追求卓越。您可能会在意自己的形象和他人的评价，努力在各种场合中展现出最好的一面。</p>
+                            </div>
+                            
+                            <div class="flex flex-wrap gap-4">
+                                <button id="view-details" class="btn-primary" data-navigate="types" data-type="3">查看详细解析</button>
+                                <button id="retry-test" class="btn-secondary">重新测试</button>
+                                <button id="download-result" class="btn-secondary">下载测试报告</button>
+                                <button id="save-test-result" class="btn-secondary flex items-center">
+                                    <i class="fa fa-save mr-2"></i> 保存结果
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 人格类型详解 -->
+            <section id="types" class="section hidden p-6 bg-white min-h-screen">
+                <div class="max-w-6xl mx-auto">
+                    <h2 class="text-3xl font-bold mb-6 text-gray-800">九型人格类型详解</h2>
+                    <p class="text-gray-600 mb-8">九型人格是一种深入人类内在动机的性格模型，将人分为9种核心类型。每种类型都有其独特的思维模式、情绪反应和行为习惯。</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+                        <div class="type-card bg-white rounded-xl shadow-md overflow-hidden card-hover cursor-pointer" data-type="1">
+                            <div class="h-2 bg-type1"></div>
+                            <div class="p-6">
+                                <div class="flex items-center mb-4">
+                                    <div class="w-10 h-10 bg-type1 rounded-full flex items-center justify-center mr-3">
+                                        <span class="text-white font-bold">1</span>
+                                    </div>
+                                    <h3 class="text-xl font-bold">完美型</h3>
+                                </div>
+                                <p class="text-gray-600 mb-4">原则性强、追求完美、善于改进</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="type-badge bg-type1 bg-opacity-10 text-type1">理想主义</span>
+                                    <span class="type-badge bg-type1 bg-opacity-10 text-type1">严谨</span>
+                                    <span class="type-badge bg-type1 bg-opacity-10 text-type1">自律</span>
+                                </div>
+                                <button class="text-primary hover:underline flex items-center view-details">
+                                    查看详情 <i class="fa fa-arrow-right ml-2"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="type-card bg-white rounded-xl shadow-md overflow-hidden card-hover cursor-pointer" data-type="2">
+                            <div class="h-2 bg-type2"></div>
+                            <div class="p-6">
+                                <div class="flex items-center mb-4">
+                                    <div class="w-10 h-10 bg-type2 rounded-full flex items-center justify-center mr-3">
+                                        <span class="text-white font-bold">2</span>
+                                    </div>
+                                    <h3 class="text-xl font-bold">助人型</h3>
+                                </div>
+                                <p class="text-gray-600 mb-4">富有同情心、乐于助人、善于人际关系</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="type-badge bg-type2 bg-opacity-10 text-type2">关怀</span>
+                                    <span class="type-badge bg-type2 bg-opacity-10 text-type2">慷慨</span>
+                                    <span class="type-badge bg-type2 bg-opacity-10 text-type2">情感丰富</span>
+                                </div>
+                                <button class="text-primary hover:underline flex items-center view-details">
+                                    查看详情 <i class="fa fa-arrow-right ml-2"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="type-card bg-white rounded-xl shadow-md overflow-hidden card-hover cursor-pointer" data-type="3">
+                            <div class="h-2 bg-type3"></div>
+                            <div class="p-6">
+                                <div class="flex items-center mb-4">
+                                    <div class="w-10 h-10 bg-type3 rounded-full flex items-center justify-center mr-3">
+                                        <span class="text-white font-bold">3</span>
+                                    </div>
+                                    <h3 class="text-xl font-bold">成就型</h3>
+                                </div>
+                                <p class="text-gray-600 mb-4">目标导向、高效务实、善于表现</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="type-badge bg-type3 bg-opacity-10 text-type3">成功导向</span>
+                                    <span class="type-badge bg-type3 bg-opacity-10 text-type3">适应性强</span>
+                                    <span class="type-badge bg-type3 bg-opacity-10 text-type3">自信</span>
+                                </div>
+                                <button class="text-primary hover:underline flex items-center view-details">
+                                    查看详情 <i class="fa fa-arrow-right ml-2"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="type-card bg-white rounded-xl shadow-md overflow-hidden card-hover cursor-pointer" data-type="4">
+                            <div class="h-2 bg-type4"></div>
+                            <div class="p-6">
+                                <div class="flex items-center mb-4">
+                                    <div class="w-10 h-10 bg-type4 rounded-full flex items-center justify-center mr-3">
+                                        <span class="text-white font-bold">4</span>
+                                    </div>
+                                    <h3 class="text-xl font-bold">独特型</h3>
+                                </div>
+                                <p class="text-gray-600 mb-4">富有创造力、情感丰富、追求独特</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="type-badge bg-type4 bg-opacity-10 text-type4">创意</span>
+                                    <span class="type-badge bg-type4 bg-opacity-10 text-type4">敏感</span>
+                                    <span class="type-badge bg-type4 bg-opacity-10 text-type4">自我表达</span>
+                                </div>
+                                <button class="text-primary hover:underline flex items-center view-details">
+                                    查看详情 <i class="fa fa-arrow-right ml-2"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="type-card bg-white rounded-xl shadow-md overflow-hidden card-hover cursor-pointer" data-type="5">
+                            <div class="h-2 bg-type5"></div>
+                            <div class="p-6">
+                                <div class="flex items-center mb-4">
+                                    <div class="w-10 h-10 bg-type5 rounded-full flex items-center justify-center mr-3">
+                                        <span class="text-white font-bold">5</span>
+                                    </div>
+                                    <h3 class="text-xl font-bold">理智型</h3>
+                                </div>
+                                <p class="text-gray-600 mb-4">理性分析、独立思考、知识渊博</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="type-badge bg-type5 bg-opacity-10 text-type5">分析</span>
+                                    <span class="type-badge bg-type5 bg-opacity-10 text-type5">独立</span>
+                                    <span class="type-badge bg-type5 bg-opacity-10 text-type5">好奇</span>
+                                </div>
+                                <button class="text-primary hover:underline flex items-center view-details">
+                                    查看详情 <i class="fa fa-arrow-right ml-2"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="type-card bg-white rounded-xl shadow-md overflow-hidden card-hover cursor-pointer" data-type="6">
+                            <div class="h-2 bg-type6"></div>
+                            <div class="p-6">
+                                <div class="flex items-center mb-4">
+                                    <div class="w-10 h-10 bg-type6 rounded-full flex items-center justify-center mr-3">
+                                        <span class="text-white font-bold">6</span>
+                                    </div>
+                                    <h3 class="text-xl font-bold">忠诚型</h3>
+                                </div>
+                                <p class="text-gray-600 mb-4">谨慎可靠、忠诚负责、善于规划</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="type-badge bg-type6 bg-opacity-10 text-type6">忠诚</span>
+                                    <span class="type-badge bg-type6 bg-opacity-10 text-type6">谨慎</span>
+                                    <span class="type-badge bg-type6 bg-opacity-10 text-type6">务实</span>
+                                </div>
+                                <button class="text-primary hover:underline flex items-center view-details">
+                                    查看详情 <i class="fa fa-arrow-right ml-2"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="type-card bg-white rounded-xl shadow-md overflow-hidden card-hover cursor-pointer" data-type="7">
+                            <div class="h-2 bg-type7"></div>
+                            <div class="p-6">
+                                <div class="flex items-center mb-4">
+                                    <div class="w-10 h-10 bg-type7 rounded-full flex items-center justify-center mr-3">
+                                        <span class="text-white font-bold">7</span>
+                                    </div>
+                                    <h3 class="text-xl font-bold">活跃型</h3>
+                                </div>
+                                <p class="text-gray-600 mb-4">乐观开朗、富有创意、追求刺激</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="type-badge bg-type7 bg-opacity-10 text-type7">乐观</span>
+                                    <span class="type-badge bg-type7 bg-opacity-10 text-type7">多才多艺</span>
+                                    <span class="type-badge bg-type7 bg-opacity-10 text-type7">热情</span>
+                                </div>
+                                <button class="text-primary hover:underline flex items-center view-details">
+                                    查看详情 <i class="fa fa-arrow-right ml-2"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="type-card bg-white rounded-xl shadow-md overflow-hidden card-hover cursor-pointer" data-type="8">
+                            <div class="h-2 bg-type8"></div>
+                            <div class="p-6">
+                                <div class="flex items-center mb-4">
+                                    <div class="w-10 h-10 bg-type8 rounded-full flex items-center justify-center mr-3">
+                                        <span class="text-white font-bold">8</span>
+                                    </div>
+                                    <h3 class="text-xl font-bold">领袖型</h3>
+                                </div>
+                                <p class="text-gray-600 mb-4">自信果断、勇于挑战、善于领导</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="type-badge bg-type8 bg-opacity-10 text-type8">领导力</span>
+                                    <span class="type-badge bg-type8 bg-opacity-10 text-type8">果断</span>
+                                    <span class="type-badge bg-type8 bg-opacity-10 text-type8">保护欲</span>
+                                </div>
+                                <button class="text-primary hover:underline flex items-center view-details">
+                                    查看详情 <i class="fa fa-arrow-right ml-2"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="type-card bg-white rounded-xl shadow-md overflow-hidden card-hover cursor-pointer" data-type="9">
+                            <div class="h-2 bg-type9"></div>
+                            <div class="p-6">
+                                <div class="flex items-center mb-4">
+                                    <div class="w-10 h-10 bg-type9 rounded-full flex items-center justify-center mr-3">
+                                        <span class="text-white font-bold">9</span>
+                                    </div>
+                                    <h3 class="text-xl font-bold">和平型</h3>
+                                </div>
+                                <p class="text-gray-600 mb-4">温和友善、善于调解、追求和谐</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="type-badge bg-type9 bg-opacity-10 text-type9">和平</span>
+                                    <span class="type-badge bg-type9 bg-opacity-10 text-type9">包容</span>
+                                    <span class="type-badge bg-type9 bg-opacity-10 text-type9">稳定</span>
+                                </div>
+                                <button class="text-primary hover:underline flex items-center view-details">
+                                    查看详情 <i class="fa fa-arrow-right ml-2"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 类型详情模态框 -->
+                    <div id="type-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+                        <div class="bg-white rounded-xl shadow-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+                            <div class="p-6">
+                                <div class="flex justify-between items-center mb-6">
+                                    <h3 id="modal-title" class="text-2xl font-bold">成就型 - 详细解析</h3>
+                                    <button id="close-modal" class="text-gray-500 hover:text-gray-700">
+                                        <i class="fa fa-times text-xl"></i>
+                                    </button>
+                                </div>
+                                
+                                <div id="modal-content">
+                                    <div class="mb-8">
+                                        <h4 class="text-xl font-semibold mb-3">核心特质</h4>
+                                        <p class="text-gray-600 mb-4">成就型的人具有强烈的目标感和行动力，渴望成功和被认可。他们善于适应环境，能够根据不同的情境调整自己的表现，以达到最佳效果。</p>
+                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                            <div class="bg-green-50 p-4 rounded-lg">
+                                                <h5 class="font-semibold mb-2 text-green-700">优势</h5>
+                                                <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                                    <li>目标导向，富有行动力</li>
+                                                    <li>善于自我激励和激励他人</li>
+                                                    <li>适应性强，能在不同环境中表现出色</li>
+                                                    <li>注重效率和结果，追求卓越</li>
+                                                    <li>具有良好的形象管理能力</li>
+                                                </ul>
+                                            </div>
+                                            <div class="bg-red-50 p-4 rounded-lg">
+                                                <h5 class="font-semibold mb-2 text-red-700">挑战</h5>
+                                                <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                                    <li>可能过度关注外在成就而忽视内在需求</li>
+                                                    <li>为了成功可能会牺牲个人关系</li>
+                                                    <li>对失败和批评较为敏感</li>
+                                                    <li>可能会过度工作，忽视休息和自我关怀</li>
+                                                    <li>有时会为了迎合他人而改变自己</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mb-8">
+                                        <h4 class="text-xl font-semibold mb-3">职场表现</h4>
+                                        <p class="text-gray-600 mb-4">在工作环境中，成就型的人通常表现出高效、务实和结果导向的特点。他们善于设定目标，并努力实现这些目标，常常成为团队中的佼佼者。</p>
+                                        <div class="bg-blue-50 p-4 rounded-lg">
+                                            <h5 class="font-semibold mb-2 text-blue-700">适合的工作环境</h5>
+                                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                                <li>目标明确、有明确晋升路径的组织</li>
+                                                <li>注重业绩和成果的团队</li>
+                                                <li>需要频繁互动和展示能力的场合</li>
+                                                <li>具有挑战性和竞争性的环境</li>
+                                                <li>能够快速获得反馈和认可的工作</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mb-8">
+                                        <h4 class="text-xl font-semibold mb-3">成长建议</h4>
+                                        <ul class="list-disc list-inside text-gray-600 space-y-2">
+                                            <li>关注内在动机，不仅仅是外在成就</li>
+                                            <li>学会接受自己的不完美，不过度追求完美形象</li>
+                                            <li>培养深度的人际关系，不仅仅是功利性的人脉</li>
+                                            <li>学会在工作和生活之间取得平衡</li>
+                                            <li>关注过程而非仅仅是结果</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div>
+                                        <h4 class="text-xl font-semibold mb-3">压力与放松状态</h4>
+                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                            <div class="bg-yellow-50 p-4 rounded-lg">
+                                                <h5 class="font-semibold mb-2 text-yellow-700">压力状态（表现出9号特质）</h5>
+                                                <p class="text-gray-600">当成就型处于压力状态时，可能会表现出拖延、缺乏动力、不愿面对现实的特点。他们可能会感到沮丧和无助，失去往日的自信和活力。</p>
+                                            </div>
+                                            <div class="bg-green-50 p-4 rounded-lg">
+                                                <h5 class="font-semibold mb-2 text-green-700">放松状态（表现出6号特质）</h5>
+                                                <p class="text-gray-600">当成就型处于放松状态时，会变得更加谨慎和有规划，能够更好地考虑团队的需求和感受。他们会更加注重细节和团队协作，表现出更强的责任感和忠诚度。</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 人际关系改善 -->
+            <section id="relationships" class="section hidden p-6 bg-white min-h-screen">
+                <div class="max-w-6xl mx-auto">
+                    <h2 class="text-3xl font-bold mb-6 text-gray-800">人际关系改善方案</h2>
+                    <p class="text-gray-600 mb-8">了解不同人格类型之间的互动模式，掌握与各种类型的人有效沟通和协作的技巧。</p>
+                    
+                    <div class="mb-10 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                        <div>
+                            <h3 class="text-2xl font-semibold mb-4">选择您的人格类型</h3>
+                            <div class="flex flex-wrap gap-3">
+                                <button class="relationship-type-btn px-4 py-2 rounded-full border border-gray-300 hover:bg-gray-100 transition-colors" data-type="1">1号 完美型</button>
+                                <button class="relationship-type-btn px-4 py-2 rounded-full border border-gray-300 hover:bg-gray-100 transition-colors" data-type="2">2号 助人型</button>
+                                <button class="relationship-type-btn px-4 py-2 rounded-full border border-gray-300 hover:bg-gray-100 transition-colors active bg-primary text-white" data-type="3">3号 成就型</button>
+                                <button class="relationship-type-btn px-4 py-2 rounded-full border border-gray-300 hover:bg-gray-100 transition-colors" data-type="4">4号 独特型</button>
+                                <button class="relationship-type-btn px-4 py-2 rounded-full border border-gray-300 hover:bg-gray-100 transition-colors" data-type="5">5号 理智型</button>
+                                <button class="relationship-type-btn px-4 py-2 rounded-full border border-gray-300 hover:bg-gray-100 transition-colors" data-type="6">6号 忠诚型</button>
+                                <button class="relationship-type-btn px-4 py-2 rounded-full border border-gray-300 hover:bg-gray-100 transition-colors" data-type="7">7号 活跃型</button>
+                                <button class="relationship-type-btn px-4 py-2 rounded-full border border-gray-300 hover:bg-gray-100 transition-colors" data-type="8">8号 领袖型</button>
+                                <button class="relationship-type-btn px-4 py-2 rounded-full border border-gray-300 hover:bg-gray-100 transition-colors" data-type="9">9号 和平型</button>
+                            </div>
+                        </div>
+                        <button id="save-relationship-data" class="btn-secondary flex items-center">
+                            <i class="fa fa-save mr-2"></i> 保存人际关系指南
+                        </button>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-md p-6 mb-8">
+                        <h3 class="text-2xl font-semibold mb-4">成就型（3号）的人际关系指南</h3>
+                        
+                        <div class="mb-8">
+                            <h4 class="text-xl font-medium mb-3">您的沟通风格</h4>
+                            <p class="text-gray-600 mb-4">作为成就型，您在沟通中通常表现出以下特点：</p>
+                            <ul class="list-disc list-inside text-gray-600 space-y-2 mb-4">
+                                <li>目标导向，注重结果和效率</li>
+                                <li>善于表达，具有说服力</li>
+                                <li>倾向于谈论自己的成就和计划</li>
+                                <li>能够快速适应不同的沟通情境</li>
+                                <li>可能会避免表达负面情绪</li>
+                            </ul>
+                            <div class="bg-yellow-50 p-4 rounded-lg">
+                                <h5 class="font-semibold mb-2 text-yellow-700">沟通中的潜在挑战</h5>
+                                <p class="text-gray-600">您可能过于关注自己的观点和成就，而忽视他人的感受和需求。在沟通中，您可能会不自觉地主导对话，或者为了迎合他人而改变自己的真实想法。</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-8">
+                            <h4 class="text-xl font-medium mb-3">与其他类型的互动指南</h4>
+                            
+                            <div class="space-y-6">
+                                <div class="bg-white border rounded-lg overflow-hidden">
+                                    <div class="p-4 bg-gray-50 border-b">
+                                        <h5 class="font-semibold">与完美型（1号）相处</h5>
+                                    </div>
+                                    <div class="p-4">
+                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                            <div>
+                                                <h6 class="font-medium text-gray-700 mb-2">他们如何看待您</h6>
+                                                <p class="text-gray-600">他们可能欣赏您的效率和成就，但可能认为您过于关注外在形象而忽视内在价值。他们可能会觉得您不够注重细节和质量。</p>
+                                            </div>
+                                            <div>
+                                                <h6 class="font-medium text-gray-700 mb-2">相处建议</h6>
+                                                <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                                    <li>关注细节和质量，不仅仅是结果</li>
+                                                    <li>尊重他们的原则和标准</li>
+                                                    <li>避免过度自我推销</li>
+                                                    <li>承认并欣赏他们的贡献</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-white border rounded-lg overflow-hidden">
+                                    <div class="p-4 bg-gray-50 border-b">
+                                        <h5 class="font-semibold">与助人型（2号）相处</h5>
+                                    </div>
+                                    <div class="p-4">
+                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                            <div>
+                                                <h6 class="font-medium text-gray-700 mb-2">他们如何看待您</h6>
+                                                <p class="text-gray-600">他们可能欣赏您的活力和成就，但可能觉得您过于自我中心，不够关注他人的需求。他们可能会主动帮助您，但期望得到您的认可和感激。</p>
+                                            </div>
+                                            <div>
+                                                <h6 class="font-medium text-gray-700 mb-2">相处建议</h6>
+                                                <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                                    <li>关注他们的需求和感受</li>
+                                                    <li>表达对他们帮助的感激</li>
+                                                    <li>避免利用他们的善意</li>
+                                                    <li>在他们需要时提供支持</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-white border rounded-lg overflow-hidden">
+                                    <div class="p-4 bg-gray-50 border-b">
+                                        <h5 class="font-semibold">与独特型（4号）相处</h5>
+                                    </div>
+                                    <div class="p-4">
+                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                            <div>
+                                                <h6 class="font-medium text-gray-700 mb-2">他们如何看待您</h6>
+                                                <p class="text-gray-600">他们可能觉得您过于注重外在成功和社会认可，缺乏深度和真实性。他们可能会欣赏您的成就，但也可能认为您过于肤浅。</p>
+                                            </div>
+                                            <div>
+                                                <h6 class="font-medium text-gray-700 mb-2">相处建议</h6>
+                                                <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                                    <li>展示您的内在感受和脆弱面</li>
+                                                    <li>尊重他们的独特性和创造力</li>
+                                                    <li>避免过度追求表面光鲜</li>
+                                                    <li>深入交流情感和价值观</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- 更多类型的互动指南可以根据需要添加 -->
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-medium mb-3">改善人际关系的关键策略</h4>
+                            <ul class="list-disc list-inside text-gray-600 space-y-2">
+                                <li><strong>关注他人</strong>：学会倾听和关注他人的需求和感受，不仅仅是谈论自己的成就。</li>
+                                <li><strong>培养深度关系</strong>：投入时间和精力建立深层次的人际关系，而不仅仅是功利性的人脉。</li>
+                                <li><strong>接受反馈</strong>：虚心接受他人的反馈和批评，视之为成长的机会。</li>
+                                <li><strong>展示真实自我</strong>：不要为了迎合他人而过度改变自己，展示真实的想法和感受。</li>
+                                <li><strong>平衡工作与生活</strong>：不要让工作占据生活的全部，留出时间与家人和朋友相处。</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-blue-50 rounded-xl p-6">
+                        <h3 class="text-xl font-semibold mb-4">冲突解决指南</h3>
+                        <p class="text-gray-600 mb-4">作为成就型，您在面对冲突时可能会采取以下策略：</p>
+                        <ul class="list-disc list-inside text-gray-600 space-y-2 mb-4">
+                            <li>试图快速解决问题，避免长时间的冲突</li>
+                            <li>可能会为了维持形象而避免直接冲突</li>
+                            <li>倾向于关注解决方案而非情感表达</li>
+                            <li>可能会利用自己的说服力来影响结果</li>
+                        </ul>
+                        <div class="bg-white p-4 rounded-lg">
+                            <h5 class="font-semibold mb-2">冲突解决建议</h5>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li>正视冲突，不要回避或忽视问题</li>
+                                <li>关注冲突中的情感因素，不仅仅是解决方案</li>
+                                <li>尊重他人的观点，即使与您不同</li>
+                                <li>寻求双赢的解决方案，而不仅仅是您的胜利</li>
+                                <li>学会道歉和接受道歉</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 职场角色适配 -->
+            <section id="career" class="section hidden p-6 bg-white min-h-screen">
+                <div class="max-w-6xl mx-auto">
+                    <h2 class="text-3xl font-bold mb-6 text-gray-800">职场角色适配表</h2>
+                    <p class="text-gray-600 mb-8">了解不同人格类型适合的工作岗位、职业发展方向和工作环境。</p>
+                    
+                    <div class="mb-10 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                        <div>
+                            <h3 class="text-2xl font-semibold mb-4">选择人格类型查看适配职业</h3>
+                            <div class="flex flex-wrap gap-3">
+                                <button class="career-type-btn px-4 py-2 rounded-full border border-gray-300 hover:bg-gray-100 transition-colors" data-type="1">1号 完美型</button>
+                                <button class="career-type-btn px-4 py-2 rounded-full border border-gray-300 hover:bg-gray-100 transition-colors" data-type="2">2号 助人型</button>
+                                <button class="career-type-btn px-4 py-2 rounded-full border border-gray-300 hover:bg-gray-100 transition-colors active bg-primary text-white" data-type="3">3号 成就型</button>
+                                <button class="career-type-btn px-4 py-2 rounded-full border border-gray-300 hover:bg-gray-100 transition-colors" data-type="4">4号 独特型</button>
+                                <button class="career-type-btn px-4 py-2 rounded-full border border-gray-300 hover:bg-gray-100 transition-colors" data-type="5">5号 理智型</button>
+                                <button class="career-type-btn px-4 py-2 rounded-full border border-gray-300 hover:bg-gray-100 transition-colors" data-type="6">6号 忠诚型</button>
+                                <button class="career-type-btn px-4 py-2 rounded-full border border-gray-300 hover:bg-gray-100 transition-colors" data-type="7">7号 活跃型</button>
+                                <button class="career-type-btn px-4 py-2 rounded-full border border-gray-300 hover:bg-gray-100 transition-colors" data-type="8">8号 领袖型</button>
+                                <button class="career-type-btn px-4 py-2 rounded-full border border-gray-300 hover:bg-gray-100 transition-colors" data-type="9">9号 和平型</button>
+                            </div>
+                        </div>
+                        <button id="save-career-data" class="btn-secondary flex items-center">
+                            <i class="fa fa-save mr-2"></i> 保存职业适配信息
+                        </button>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-md p-6 mb-8">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-type3 rounded-full flex items-center justify-center mr-4">
+                                <span class="text-white font-bold text-xl">3</span>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold">成就型（3号）职场适配</h3>
+                                <p class="text-gray-600">目标导向、高效务实、善于表现</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-8">
+                            <h4 class="text-xl font-medium mb-3">核心职业优势</h4>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                <div class="bg-blue-50 p-4 rounded-lg">
+                                    <div class="flex items-center mb-2">
+                                        <i class="fa fa-trophy text-primary mr-2"></i>
+                                        <h5 class="font-semibold">目标导向</h5>
+                                    </div>
+                                    <p class="text-gray-600">善于设定明确的目标，并采取有效行动实现这些目标。</p>
+                                </div>
+                                <div class="bg-blue-50 p-4 rounded-lg">
+                                    <div class="flex items-center mb-2">
+                                        <i class="fa fa-bolt text-primary mr-2"></i>
+                                        <h5 class="font-semibold">高效务实</h5>
+                                    </div>
+                                    <p class="text-gray-600">注重效率和结果，能够快速适应环境并做出调整。</p>
+                                </div>
+                                <div class="bg-blue-50 p-4 rounded-lg">
+                                    <div class="flex items-center mb-2">
+                                        <i class="fa fa-users text-primary mr-2"></i>
+                                        <h5 class="font-semibold">善于表现</h5>
+                                    </div>
+                                    <p class="text-gray-600">具有良好的沟通和表达能力，能够在各种场合中脱颖而出。</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-8">
+                            <h4 class="text-xl font-medium mb-3">适合的职业领域</h4>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <h5 class="font-semibold mb-2">首选职业</h5>
+                                    <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                        <li>销售和市场营销</li>
+                                        <li>管理咨询</li>
+                                        <li>企业管理和领导岗位</li>
+                                        <li>公共关系和媒体</li>
+                                        <li>创业和企业家</li>
+                                        <li>演讲和培训</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold mb-2">次选职业</h5>
+                                    <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                        <li>人力资源管理</li>
+                                        <li>项目管理</li>
+                                        <li>金融和投资</li>
+                                        <li>法律和政治</li>
+                                        <li>技术管理</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-8">
+                            <h4 class="text-xl font-medium mb-3">适合的工作环境</h4>
+                            <div class="bg-blue-50 p-4 rounded-lg">
+                                <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                    <li>目标明确、有明确晋升路径的组织</li>
+                                    <li>注重业绩和成果的团队</li>
+                                    <li>需要频繁互动和展示能力的场合</li>
+                                    <li>具有挑战性和竞争性的环境</li>
+                                    <li>能够快速获得反馈和认可的工作</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-8">
+                            <h4 class="text-xl font-medium mb-3">职业发展建议</h4>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="bg-white border rounded-lg p-4">
+                                    <h5 class="font-semibold mb-2">短期发展（1-3年）</h5>
+                                    <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                        <li>专注于建立专业技能和行业知识</li>
+                                        <li>寻找能够展示自己能力的项目和机会</li>
+                                        <li>建立广泛的职业人脉网络</li>
+                                        <li>寻求导师指导和反馈</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-white border rounded-lg p-4">
+                                    <h5 class="font-semibold mb-2">长期发展（5-10年）</h5>
+                                    <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                        <li>向领导和管理岗位发展</li>
+                                        <li>建立个人品牌和专业声誉</li>
+                                        <li>考虑创业或独立咨询</li>
+                                        <li>培养战略思维和全局视野</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-medium mb-3">职业发展挑战与应对</h4>
+                            <div class="space-y-4">
+                                <div class="bg-white border rounded-lg overflow-hidden">
+                                    <div class="p-4 bg-gray-50 border-b">
+                                        <h5 class="font-semibold">挑战：过度关注外在成就</h5>
+                                    </div>
+                                    <div class="p-4">
+                                        <p class="text-gray-600 mb-2">作为成就型，您可能会过度关注外在的成功指标，而忽视内在的职业满足感。</p>
+                                        <h6 class="font-medium text-gray-700 mb-1">应对策略：</h6>
+                                        <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                            <li>定期反思自己的职业价值观和目标</li>
+                                            <li>关注工作过程中的乐趣和成长</li>
+                                            <li>培养工作之外的兴趣爱好</li>
+                                            <li>寻求能够带来内在满足感的工作项目</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-white border rounded-lg overflow-hidden">
+                                    <div class="p-4 bg-gray-50 border-b">
+                                        <h5 class="font-semibold">挑战：工作与生活平衡</h5>
+                                    </div>
+                                    <div class="p-4">
+                                        <p class="text-gray-600 mb-2">您可能会为了追求职业成功而牺牲个人生活和关系。</p>
+                                        <h6 class="font-medium text-gray-700 mb-1">应对策略：</h6>
+                                        <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                            <li>设定明确的工作边界</li>
+                                            <li>优先安排家庭和个人时间</li>
+                                            <li>学会委派任务，不要事必躬亲</li>
+                                            <li>培养自我关怀的习惯</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-white border rounded-lg overflow-hidden">
+                                    <div class="p-4 bg-gray-50 border-b">
+                                        <h5 class="font-semibold">挑战：处理失败和批评</h5>
+                                    </div>
+                                    <div class="p-4">
+                                        <p class="text-gray-600 mb-2">您可能对失败和批评较为敏感，这可能会影响您的职业发展。</p>
+                                        <h6 class="font-medium text-gray-700 mb-1">应对策略：</h6>
+                                        <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                            <li>将失败视为学习和成长的机会</li>
+                                            <li>寻求建设性的反馈，并从中吸取教训</li>
+                                            <li>培养韧性和适应能力</li>
+                                            <li>关注自己的进步，而不仅仅是结果</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-blue-50 rounded-xl p-6">
+                        <h3 class="text-xl font-semibold mb-4">职场成功小贴士</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="bg-white p-4 rounded-lg">
+                                <div class="flex items-center mb-2">
+                                    <i class="fa fa-lightbulb-o text-primary mr-2"></i>
+                                    <h5 class="font-semibold">发挥优势</h5>
+                                </div>
+                                <p class="text-gray-600">充分利用您的目标导向和高效务实的特点，在工作中追求卓越。</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg">
+                                <div class="flex items-center mb-2">
+                                    <i class="fa fa-users text-primary mr-2"></i>
+                                    <h5 class="font-semibold">团队协作</h5>
+                                </div>
+                                <p class="text-gray-600">学会与不同类型的同事有效协作，欣赏团队成员的多样性。</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg">
+                                <div class="flex items-center mb-2">
+                                    <i class="fa fa-refresh text-primary mr-2"></i>
+                                    <h5 class="font-semibold">持续成长</h5>
+                                </div>
+                                <p class="text-gray-600">不断学习和发展新技能，保持职业竞争力和适应性。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 团队协作定位 -->
+            <section id="team" class="section hidden p-6 bg-white min-h-screen">
+                <div class="max-w-6xl mx-auto">
+                    <h2 class="text-3xl font-bold mb-6 text-gray-800">团队协作定位系统</h2>
+                    <p class="text-gray-600 mb-8">了解不同人格类型在团队中的角色定位、优势贡献和协作策略，优化团队配置。</p>
+                    
+                    <div class="mb-10">
+                        <div class="bg-white rounded-xl shadow-md p-6 mb-8">
+                            <h3 class="text-2xl font-semibold mb-4">团队角色分布</h3>
+                            <div class="flex justify-center mb-6">
+                                <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/4e777ab24670476e8025ece38706a94a~tplv-a9rns2rl98-image.image?rcl=2025111601301505FC3E7435B65AE29F60&rk3s=8e244e95&rrcfp=f06b921b&x-expires=1765819839&x-signature=Vj4e8k9%2FLMhMj6otDqIW7JNcMW0%3D" alt="九型人格团队协作" class="max-w-full h-auto rounded-lg">
+                            </div>
+                            <p class="text-gray-600 text-center">每种人格类型在团队中都有独特的贡献和价值，了解这些可以帮助团队更好地协作。</p>
+                        </div>
+                        
+                        <div class="bg-white rounded-xl shadow-md p-6 mb-8">
+                            <h3 class="text-2xl font-semibold mb-4">团队协作模拟器</h3>
+                            <p class="text-gray-600 mb-6">通过添加不同人格类型的团队成员，查看团队角色分布和协作建议。</p>
+                            
+                            <div class="mb-6">
+                                <h4 class="text-lg font-medium mb-3">添加团队成员</h4>
+                                <div class="flex flex-wrap gap-3 mb-4">
+                                    <button class="team-member-btn px-4 py-2 rounded-full border border-gray-300 hover:bg-gray-100 transition-colors" data-type="1">1号 完美型</button>
+                                    <button class="team-member-btn px-4 py-2 rounded-full border border-gray-300 hover:bg-gray-100 transition-colors" data-type="2">2号 助人型</button>
+                                    <button class="team-member-btn px-4 py-2 rounded-full border border-gray-300 hover:bg-gray-100 transition-colors" data-type="3">3号 成就型</button>
+                                    <button class="team-member-btn px-4 py-2 rounded-full border border-gray-300 hover:bg-gray-100 transition-colors" data-type="4">4号 独特型</button>
+                                    <button class="team-member-btn px-4 py-2 rounded-full border border-gray-300 hover:bg-gray-100 transition-colors" data-type="5">5号 理智型</button>
+                                    <button class="team-member-btn px-4 py-2 rounded-full border border-gray-300 hover:bg-gray-100 transition-colors" data-type="6">6号 忠诚型</button>
+                                    <button class="team-member-btn px-4 py-2 rounded-full border border-gray-300 hover:bg-gray-100 transition-colors" data-type="7">7号 活跃型</button>
+                                    <button class="team-member-btn px-4 py-2 rounded-full border border-gray-300 hover:bg-gray-100 transition-colors" data-type="8">8号 领袖型</button>
+                                    <button class="team-member-btn px-4 py-2 rounded-full border border-gray-300 hover:bg-gray-100 transition-colors" data-type="9">9号 和平型</button>
+                                </div>
+                                <div class="flex justify-end gap-3">
+                                    <button id="save-team-data" class="btn-secondary flex items-center">
+                                        <i class="fa fa-save mr-2"></i> 保存团队配置
+                                    </button>
+                                    <button id="clear-team" class="btn-secondary">清空团队</button>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <h4 class="text-lg font-medium mb-3">当前团队</h4>
+                                <div id="team-members" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                                    <!-- 团队成员将在这里动态添加 -->
+                                    <div class="team-member bg-white border rounded-lg p-4 flex items-center">
+                                        <div class="w-10 h-10 bg-type3 rounded-full flex items-center justify-center mr-3">
+                                            <span class="text-white font-bold">3</span>
+                                        </div>
+                                        <div class="flex-1">
+                                            <h5 class="font-medium">成就型</h5>
+                                            <p class="text-sm text-gray-500">目标导向、高效务实</p>
+                                        </div>
+                                        <button class="remove-member text-gray-400 hover:text-gray-600">
+                                            <i class="fa fa-times"></i>
+                                        </button>
+                                    </div>
+                                    <div class="team-member bg-white border rounded-lg p-4 flex items-center">
+                                        <div class="w-10 h-10 bg-type5 rounded-full flex items-center justify-center mr-3">
+                                            <span class="text-white font-bold">5</span>
+                                        </div>
+                                        <div class="flex-1">
+                                            <h5 class="font-medium">理智型</h5>
+                                            <p class="text-sm text-gray-500">理性分析、独立思考</p>
+                                        </div>
+                                        <button class="remove-member text-gray-400 hover:text-gray-600">
+                                            <i class="fa fa-times"></i>
+                                        </button>
+                                    </div>
+                                    <div class="team-member bg-white border rounded-lg p-4 flex items-center">
+                                        <div class="w-10 h-10 bg-type7 rounded-full flex items-center justify-center mr-3">
+                                            <span class="text-white font-bold">7</span>
+                                        </div>
+                                        <div class="flex-1">
+                                            <h5 class="font-medium">活跃型</h5>
+                                            <p class="text-sm text-gray-500">乐观开朗、富有创意</p>
+                                        </div>
+                                        <button class="remove-member text-gray-400 hover:text-gray-600">
+                                            <i class="fa fa-times"></i>
+                                        </button>
+                                    </div>
+                                    <div class="team-member bg-white border rounded-lg p-4 flex items-center">
+                                        <div class="w-10 h-10 bg-type9 rounded-full flex items-center justify-center mr-3">
+                                            <span class="text-white font-bold">9</span>
+                                        </div>
+                                        <div class="flex-1">
+                                            <h5 class="font-medium">和平型</h5>
+                                            <p class="text-sm text-gray-500">温和友善、善于调解</p>
+                                        </div>
+                                        <button class="remove-member text-gray-400 hover:text-gray-600">
+                                            <i class="fa fa-times"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <h4 class="text-lg font-medium mb-3">团队分析</h4>
+                                <div class="bg-blue-50 p-4 rounded-lg">
+                                    <div class="mb-4">
+                                        <h5 class="font-semibold mb-2">团队角色分布</h5>
+                                        <div class="h-64">
+                                            <canvas id="team-role-chart"></canvas>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mb-4">
+                                        <h5 class="font-semibold mb-2">团队优势</h5>
+                                        <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                            <li>目标导向明确，执行力强</li>
+                                            <li>具有创新思维和解决方案</li>
+                                            <li>团队氛围和谐，成员关系良好</li>
+                                            <li>具备理性分析和战略思考能力</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="mb-4">
+                                        <h5 class="font-semibold mb-2">潜在挑战</h5>
+                                        <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                            <li>可能缺乏细节把控和质量控制</li>
+                                            <li>在压力下可能出现决策犹豫</li>
+                                            <li>可能缺乏直接面对冲突的能力</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div>
+                                        <h5 class="font-semibold mb-2">协作建议</h5>
+                                        <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                            <li>设立明确的质量标准和检查机制</li>
+                                            <li>培养团队成员的风险意识和应对能力</li>
+                                            <li>鼓励直接沟通，正视问题和冲突</li>
+                                            <li>定期进行团队建设活动，增强信任</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white rounded-xl shadow-md p-6">
+                            <h3 class="text-2xl font-semibold mb-4">最佳团队组合案例</h3>
+                            
+                            <div class="space-y-6">
+                                <div class="bg-white border rounded-lg overflow-hidden">
+                                    <div class="p-4 bg-gray-50 border-b">
+                                        <h5 class="font-semibold">创新项目团队</h5>
+                                    </div>
+                                    <div class="p-4">
+                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                            <div>
+                                                <h6 class="font-medium text-gray-700 mb-2">团队构成</h6>
+                                                <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                                    <li>1号 完美型 - 质量控制</li>
+                                                    <li>3号 成就型 - 项目推进</li>
+                                                    <li>4号 独特型 - 创意设计</li>
+                                                    <li>5号 理智型 - 技术分析</li>
+                                                    <li>7号 活跃型 - 创意激发</li>
+                                                </ul>
+                                            </div>
+                                            <div>
+                                                <h6 class="font-medium text-gray-700 mb-2">协作优势</h6>
+                                                <p class="text-gray-600">这个组合融合了创意、分析、执行和质量控制能力，能够高效推进创新项目。4号和7号提供创意灵感，5号进行技术可行性分析，3号负责项目推进，1号确保质量标准。</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-white border rounded-lg overflow-hidden">
+                                    <div class="p-4 bg-gray-50 border-b">
+                                        <h5 class="font-semibold">危机管理团队</h5>
+                                    </div>
+                                    <div class="p-4">
+                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                            <div>
+                                                <h6 class="font-medium text-gray-700 mb-2">团队构成</h6>
+                                                <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                                    <li>6号 忠诚型 - 风险评估</li>
+                                                    <li>8号 领袖型 - 决策指挥</li>
+                                                    <li>5号 理智型 - 数据分析</li>
+                                                    <li>3号 成就型 - 执行实施</li>
+                                                    <li>9号 和平型 - 团队协调</li>
+                                                </ul>
+                                            </div>
+                                            <div>
+                                                <h6 class="font-medium text-gray-700 mb-2">协作优势</h6>
+                                                <p class="text-gray-600">这个组合擅长应对危机和不确定性。6号能够提前识别风险，8号在压力下做出果断决策，5号提供理性分析，3号确保高效执行，9号协调团队关系，保持团队稳定。</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-white border rounded-lg overflow-hidden">
+                                    <div class="p-4 bg-gray-50 border-b">
+                                        <h5 class="font-semibold">客户服务团队</h5>
+                                    </div>
+                                    <div class="p-4">
+                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                            <div>
+                                                <h6 class="font-medium text-gray-700 mb-2">团队构成</h6>
+                                                <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                                    <li>2号 助人型 - 客户关系</li>
+                                                    <li>9号 和平型 - 冲突调解</li>
+                                                    <li>6号 忠诚型 - 流程管理</li>
+                                                    <li>3号 成就型 - 目标达成</li>
+                                                    <li>1号 完美型 - 质量保证</li>
+                                                </ul>
+                                            </div>
+                                            <div>
+                                                <h6 class="font-medium text-gray-700 mb-2">协作优势</h6>
+                                                <p class="text-gray-600">这个组合专注于提供优质的客户服务体验。2号善于建立客户关系，9号能够有效处理客户投诉和冲突，6号确保服务流程的稳定性，3号推动团队达成业绩目标，1号保证服务质量。</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        // 导航功能
+        document.addEventListener('DOMContentLoaded', function() {
+            // 导航链接点击事件
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('.section');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetSection = this.getAttribute('data-section');
+                    
+                    // 更新导航链接状态
+                    navLinks.forEach(navLink => navLink.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // 显示目标部分，隐藏其他部分
+                    sections.forEach(section => {
+                        if (section.id === targetSection) {
+                            section.classList.remove('hidden');
+                            section.classList.add('active');
+                        } else {
+                            section.classList.add('hidden');
+                            section.classList.remove('active');
+                        }
+                    });
+                });
+            });
+            
+            // 其他区域的导航按钮
+            const navigateButtons = document.querySelectorAll('[data-navigate]');
+            navigateButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const targetSection = this.getAttribute('data-navigate');
+                    
+                    // 更新导航链接状态
+                    navLinks.forEach(navLink => {
+                        if (navLink.getAttribute('data-section') === targetSection) {
+                            navLink.classList.add('active');
+                        } else {
+                            navLink.classList.remove('active');
+                        }
+                    });
+                    
+                    // 显示目标部分，隐藏其他部分
+                    sections.forEach(section => {
+                        if (section.id === targetSection) {
+                            section.classList.remove('hidden');
+                            section.classList.add('active');
+                            
+                            // 如果是类型详情，还需要加载对应类型的数据
+                            if (targetSection === 'types' && this.hasAttribute('data-type')) {
+                                const typeId = this.getAttribute('data-type');
+                                setTimeout(() => {
+                                    const typeCard = document.querySelector(`.type-card[data-type="${typeId}"]`);
+                                    if (typeCard) {
+                                        typeCard.click();
+                                    }
+                                }, 100);
+                            }
+                        } else {
+                            section.classList.add('hidden');
+                            section.classList.remove('active');
+                        }
+                    });
+                });
+            });
+            
+            // 类型详情模态框
+            const typeModal = document.getElementById('type-modal');
+            const closeModal = document.getElementById('close-modal');
+            const modalTitle = document.getElementById('modal-title');
+            const modalContent = document.getElementById('modal-content');
+            
+            // 人格类型详细信息
+            const typeDetails = {
+                1: {
+                    name: "完美型",
+                    coreTraits: "完美型的人具有强烈的原则性和正义感，追求完美和改进。他们善于分析问题，发现错误，并推动事情达到高标准。",
+                    strengths: [
+                        "原则性强，有正义感",
+                        "善于分析和改进",
+                        "注重细节和质量",
+                        "自律性强，有责任感",
+                        "追求卓越，不断进步"
+                    ],
+                    challenges: [
+                        "可能过于挑剔和苛刻",
+                        "对自己和他人期望过高",
+                        "容易关注错误而忽视优点",
+                        "可能因为追求完美而拖延",
+                        "不善于接受批评和不完美"
+                    ],
+                    workplace: "在工作环境中，完美型的人通常表现出严谨、自律和对细节的关注。他们善于确保质量和准确性，推动团队不断改进。",
+                    suitableEnvironments: [
+                        "注重质量和标准的组织",
+                        "需要精确和细致的工作",
+                        "有明确规则和流程的环境",
+                        "需要分析和改进的岗位",
+                        "重视道德和伦理的团队"
+                    ],
+                    growthAdvice: [
+                        "学会接受不完美，包括自己和他人的不完美",
+                        "关注优点，不仅仅是错误和不足",
+                        "放松对自己和他人的过高要求",
+                        "培养灵活性和适应性",
+                        "学会欣赏过程，不仅仅是结果"
+                    ],
+                    stressState: "在压力下，完美型的人可能会变得更加挑剔和严格，对自己和他人更加苛刻。他们可能会过度关注细节，难以做出决策，因为害怕犯错。",
+                    relaxedState: "在放松状态下，完美型的人能够更加灵活和包容，接受自己和他人的不完美。他们能够享受过程，而不仅仅是结果，表现出更多的创造力和开放性。",
+                    relationships: "完美型的人在人际关系中通常表现出可靠、负责和有原则。他们重视诚实和正直，善于提供建设性的反馈和改进建议。",
+                    relationshipAdvice: [
+                        "认可他们的原则和价值观",
+                        "欣赏他们的分析能力和改进建议",
+                        "理解他们对质量和标准的追求",
+                        "帮助他们放松对完美的过度追求",
+                        "鼓励他们表达情感，不仅仅是理性思考"
+                    ]
+                },
+                2: {
+                    name: "助人型",
+                    coreTraits: "助人型的人富有同情心和同理心，善于理解他人的需求并提供帮助。他们重视人际关系，乐于支持和关怀他人。",
+                    strengths: [
+                        "富有同情心和同理心",
+                        "善于理解他人需求",
+                        "乐于助人，慷慨大方",
+                        "善于建立和维护人际关系",
+                        "富有情感智慧，善于表达关怀"
+                    ],
+                    challenges: [
+                        "可能过于关注他人需求而忽视自己",
+                        "难以拒绝他人的请求",
+                        "可能会过度付出而感到疲惫",
+                        "可能会期望他人的回报和认可",
+                        "不善于表达自己的需求和边界"
+                    ],
+                    workplace: "在工作环境中，助人型的人通常表现出合作、支持和团队精神。他们善于建立良好的工作关系，支持同事和团队的成功。",
+                    suitableEnvironments: [
+                        "需要人际互动和合作的环境",
+                        "能够帮助他人成长和发展的岗位",
+                        "重视团队合作和和谐的组织",
+                        "需要情感智慧和沟通技巧的工作",
+                        "能够提供支持和关怀的角色"
+                    ],
+                    growthAdvice: [
+                        "学会关注自己的需求，不仅仅是他人的需求",
+                        "建立健康的边界，学会适当拒绝",
+                        "培养自我价值感，不依赖他人的认可",
+                        "照顾自己的身心健康，避免过度付出",
+                        "表达自己的真实想法和感受"
+                    ],
+                    stressState: "在压力下，助人型的人可能会变得更加过度付出，试图通过帮助他人来获得认可和价值感。他们可能会忽视自己的需求和边界，导致身心疲惫。",
+                    relaxedState: "在放松状态下，助人型的人能够平衡自己和他人的需求，建立健康的边界。他们能够真诚地帮助他人，同时也照顾好自己，表现出更多的自信和自我价值感。",
+                    relationships: "助人型的人在人际关系中通常表现出热情、友善和关怀。他们善于倾听和支持他人，重视和谐的关系和情感连接。",
+                    relationshipAdvice: [
+                        "欣赏他们的关怀和支持",
+                        "关注他们的需求，不仅仅是接受他们的帮助",
+                        "认可他们的价值，不仅仅是他们的付出",
+                        "鼓励他们表达自己的需求和边界",
+                        "帮助他们照顾自己的身心健康"
+                    ]
+                },
+                3: {
+                    name: "成就型",
+                    coreTraits: "成就型的人具有强烈的目标感和行动力，渴望成功和被认可。他们善于适应环境，能够根据不同的情境调整自己的表现，以达到最佳效果。",
+                    strengths: [
+                        "目标导向，富有行动力",
+                        "善于自我激励和激励他人",
+                        "适应性强，能在不同环境中表现出色",
+                        "注重效率和结果，追求卓越",
+                        "具有良好的形象管理能力"
+                    ],
+                    challenges: [
+                        "可能过度关注外在成就而忽视内在需求",
+                        "为了成功可能会牺牲个人关系",
+                        "对失败和批评较为敏感",
+                        "可能会过度工作，忽视休息和自我关怀",
+                        "有时会为了迎合他人而改变自己"
+                    ],
+                    workplace: "在工作环境中，成就型的人通常表现出高效、务实和结果导向的特点。他们善于设定目标，并努力实现这些目标，常常成为团队中的佼佼者。",
+                    suitableEnvironments: [
+                        "目标明确、有明确晋升路径的组织",
+                        "注重业绩和成果的团队",
+                        "需要频繁互动和展示能力的场合",
+                        "具有挑战性和竞争性的环境",
+                        "能够快速获得反馈和认可的工作"
+                    ],
+                    growthAdvice: [
+                        "关注内在动机，不仅仅是外在成就",
+                        "学会接受自己的不完美，不过度追求完美形象",
+                        "培养深度的人际关系，不仅仅是功利性的人脉",
+                        "学会在工作和生活之间取得平衡",
+                        "关注过程而非仅仅是结果"
+                    ],
+                    stressState: "在压力下，成就型的人可能会变得更加工作狂，过度关注结果而忽视过程和人际关系。他们可能会变得更加表面化，隐藏自己的真实情感，以维持完美形象。",
+                    relaxedState: "在放松状态下，成就型的人能够更加关注内在需求和真实情感，不再过度追求外在认可。他们能够享受过程，而不仅仅是结果，与他人建立更深层次的连接。",
+                    relationships: "成就型的人在人际关系中通常表现出友善、自信和魅力。他们善于与不同类型的人建立关系，并能够适应不同的社交场合。",
+                    relationshipAdvice: [
+                        "认可他们的成就和能力",
+                        "关注他们的内在需求，不仅仅是外在表现",
+                        "给予他们足够的空间和自由去追求目标",
+                        "帮助他们看到工作和生活的平衡",
+                        "鼓励他们表达真实的情感和想法"
+                    ]
+                },
+                4: {
+                    name: "独特型",
+                    coreTraits: "独特型的人富有创造力和想象力，善于表达自己的情感和独特视角。他们追求真实和深度，渴望找到自己的独特价值和意义。",
+                    strengths: [
+                        "富有创造力和想象力",
+                        "情感丰富，善于表达",
+                        "具有独特的视角和见解",
+                        "追求真实和深度",
+                        "善于发现美和意义"
+                    ],
+                    challenges: [
+                        "可能过于情绪化和敏感",
+                        "容易陷入自我怀疑和负面情绪",
+                        "可能会过度关注自己的独特性",
+                        "难以接受平凡和常规",
+                        "可能会与现实脱节，过度理想化"
+                    ],
+                    workplace: "在工作环境中，独特型的人通常表现出创意、敏感和对美的追求。他们善于提出独特的想法和解决方案，为团队带来创新和灵感。",
+                    suitableEnvironments: [
+                        "需要创造力和想象力的工作",
+                        "能够表达个人风格和独特视角的环境",
+                        "重视艺术和美学的组织",
+                        "允许深度思考和情感表达的岗位",
+                        "追求意义和价值的工作"
+                    ],
+                    growthAdvice: [
+                        "学会平衡情感和理性，不过度情绪化",
+                        "接受自己的不完美和缺点",
+                        "培养务实和现实的思维方式",
+                        "建立健康的自我价值感，不依赖外界评价",
+                        "学会在平凡中发现美和意义"
+                    ],
+                    stressState: "在压力下，独特型的人可能会变得更加情绪化和退缩，陷入自我怀疑和负面情绪。他们可能会过度关注自己的缺点和不足，感到孤独和不被理解。",
+                    relaxedState: "在放松状态下，独特型的人能够充分发挥自己的创造力和想象力，表达真实的自我。他们能够与他人建立深度的情感连接，同时保持自己的独特性和真实性。",
+                    relationships: "独特型的人在人际关系中通常表现出真诚、敏感和深度。他们重视真实的情感连接，善于理解他人的情感和需求。",
+                    relationshipAdvice: [
+                        "理解和欣赏他们的独特性和创造力",
+                        "关注他们的情感需求和内在世界",
+                        "给予他们足够的空间和时间独处",
+                        "避免过度批评和评价他们的情感表达",
+                        "支持他们追求意义和价值的努力"
+                    ]
+                },
+                5: {
+                    name: "理智型",
+                    coreTraits: "理智型的人善于分析和思考，追求知识和理解。他们喜欢独立思考，善于从复杂的信息中提取关键 insights。",
+                    strengths: [
+                        "理性分析，善于思考",
+                        "知识渊博，好奇心强",
+                        "独立自主，善于独处",
+                        "思维清晰，逻辑性强",
+                        "善于从复杂信息中提取关键 insights"
+                    ],
+                    challenges: [
+                        "可能过于理性而忽视情感",
+                        "难以表达自己的情感和需求",
+                        "可能会过度思考而缺乏行动",
+                        "喜欢独处，可能会显得冷漠和疏离",
+                        "可能会过度收集信息而迟迟不做决策"
+                    ],
+                    workplace: "在工作环境中，理智型的人通常表现出理性、客观和深度思考的特点。他们善于解决复杂问题和提供专业分析，为团队带来理性和深度。",
+                    suitableEnvironments: [
+                        "需要深度思考和分析的工作",
+                        "能够独立工作的环境",
+                        "重视知识和专业能力的组织",
+                        "需要处理复杂信息的岗位",
+                        "允许安静思考的工作环境"
+                    ],
+                    growthAdvice: [
+                        "学会平衡理性和情感，关注自己和他人的情感需求",
+                        "培养表达情感和需求的能力",
+                        "在思考和行动之间取得平衡",
+                        "建立健康的人际关系，不仅仅是知识交流",
+                        "学会在信息足够时做出决策，避免过度分析"
+                    ],
+                    stressState: "在压力下，理智型的人可能会变得更加孤僻和理性，过度依赖自己的思维能力。他们可能会退缩到自己的内心世界，避免与他人接触，过度收集信息而不采取行动。",
+                    relaxedState: "在放松状态下，理智型的人能够平衡理性和情感，开放地与他人交流和合作。他们能够将自己的知识和见解应用到实际问题中，同时保持自己的独立思考能力。",
+                    relationships: "理智型的人在人际关系中通常表现出理性、客观和深度。他们重视知识交流和智力对话，善于提供理性的建议和分析。",
+                    relationshipAdvice: [
+                        "尊重他们的独立性和思考空间",
+                        "欣赏他们的知识和分析能力",
+                        "理解他们可能不善于表达情感",
+                        "给予他们足够的时间和空间独处",
+                        "与他们进行有深度的智力对话"
+                    ]
+                },
+                6: {
+                    name: "忠诚型",
+                    coreTraits: "忠诚型的人具有强烈的责任感和忠诚度，善于规划和预防风险。他们重视安全和稳定，善于建立可靠的系统和流程。",
+                    strengths: [
+                        "忠诚可靠，责任感强",
+                        "善于规划和预防风险",
+                        "重视安全和稳定",
+                        "善于建立可靠的系统和流程",
+                        "具有强烈的团队精神和合作意识"
+                    ],
+                    challenges: [
+                        "可能过于焦虑和担忧",
+                        "难以信任他人和自己",
+                        "可能会过度谨慎而错过机会",
+                        "容易陷入负面思考和最坏情况的想象",
+                        "可能会过度依赖权威和规则"
+                    ],
+                    workplace: "在工作环境中，忠诚型的人通常表现出谨慎、可靠和团队精神。他们善于确保项目的顺利进行和团队的稳定，为团队带来安全感和可靠性。",
+                    suitableEnvironments: [
+                        "稳定和可预测的工作环境",
+                        "有明确规则和流程的组织",
+                        "重视团队合作和忠诚度的团队",
+                        "需要规划和预防风险的岗位",
+                        "能够提供安全感和稳定性的工作"
+                    ],
+                    growthAdvice: [
+                        "学会管理焦虑和担忧，培养积极的思维方式",
+                        "建立健康的信任，包括对自己和他人的信任",
+                        "在谨慎和冒险之间取得平衡",
+                        "培养自信和独立判断的能力",
+                        "学会在不确定性中找到安全感"
+                    ],
+                    stressState: "在压力下，忠诚型的人可能会变得更加焦虑和多疑，过度关注风险和最坏情况。他们可能会过度依赖权威和规则，难以做出独立决策。",
+                    relaxedState: "在放松状态下，忠诚型的人能够平衡谨慎和冒险，建立健康的信任。他们能够自信地做出决策，同时保持对团队和组织的忠诚，表现出更多的创造力和灵活性。",
+                    relationships: "忠诚型的人在人际关系中通常表现出可靠、负责和忠诚。他们重视稳定和安全的关系，善于支持和保护他人。",
+                    relationshipAdvice: [
+                        "欣赏他们的忠诚和责任感",
+                        "给予他们足够的安全感和稳定性",
+                        "理解他们可能需要时间来建立信任",
+                        "避免过度批评和不确定性",
+                        "支持他们在安全范围内尝试新事物"
+                    ]
+                },
+                7: {
+                    name: "活跃型",
+                    coreTraits: "活跃型的人乐观开朗，富有创意和活力，善于寻找新的机会和体验。他们喜欢多样性和变化，善于从不同角度思考问题。",
+                    strengths: [
+                        "乐观开朗，富有活力",
+                        "富有创意和想象力",
+                        "善于寻找新机会和体验",
+                        "思维敏捷，善于从不同角度思考问题",
+                        "能够快速适应变化"
+                    ],
+                    challenges: [
+                        "可能过于分散和缺乏专注",
+                        "难以坚持完成任务",
+                        "可能会逃避痛苦和负面情绪",
+                        "容易感到无聊和不耐烦",
+                        "可能会过度承诺而无法兑现"
+                    ],
+                    workplace: "在工作环境中，活跃型的人通常表现出热情、灵活和创新的特点。他们善于提出新想法和推动变革，为团队带来活力和创意。",
+                    suitableEnvironments: [
+                        "充满变化和挑战的工作环境",
+                        "需要创意和创新的岗位",
+                        "能够提供多样化体验的组织",
+                        "允许灵活工作方式的环境",
+                        "能够快速获得反馈和认可的工作"
+                    ],
+                    growthAdvice: [
+                        "培养专注力和坚持性，学会完成任务",
+                        "学会面对和处理负面情绪，而不是逃避",
+                        "在多样性和深度之间取得平衡",
+                        "培养承诺和责任感，避免过度承诺",
+                        "学会在变化中找到稳定和深度"
+                    ],
+                    stressState: "在压力下，活跃型的人可能会变得更加分散和逃避，试图通过寻找更多的刺激和体验来逃避压力。他们可能会过度承诺，难以专注和完成任务。",
+                    relaxedState: "在放松状态下，活跃型的人能够平衡多样性和深度，专注于重要的任务和关系。他们能够面对和处理负面情绪，同时保持自己的乐观和活力，表现出更多的深度和专注力。",
+                    relationships: "活跃型的人在人际关系中通常表现出热情、友善和有趣。他们善于与人建立关系，带来欢乐和活力，喜欢与他人分享新的体验和想法。",
+                    relationshipAdvice: [
+                        "欣赏他们的活力和创意",
+                        "理解他们需要多样性和变化",
+                        "帮助他们专注于重要的任务和关系",
+                        "鼓励他们面对和处理负面情绪",
+                        "与他们分享新的体验和想法"
+                    ]
+                },
+                8: {
+                    name: "领袖型",
+                    coreTraits: "领袖型的人自信果断，勇于挑战和领导，善于掌控局面和做出决策。他们重视公正和直接，善于保护自己和他人。",
+                    strengths: [
+                        "自信果断，勇于挑战",
+                        "善于领导和掌控局面",
+                        "具有强烈的正义感和公平意识",
+                        "善于做出决策和采取行动",
+                        "勇于保护自己和他人"
+                    ],
+                    challenges: [
+                        "可能过于强势和控制",
+                        "难以示弱和接受帮助",
+                        "可能会过度保护自己和他人",
+                        "容易愤怒和冲动",
+                        "可能会忽视他人的感受和需求"
+                    ],
+                    workplace: "在工作环境中，领袖型的人通常表现出果断、自信和领导力。他们善于带领团队克服困难和实现目标，为团队带来方向和力量。",
+                    suitableEnvironments: [
+                        "需要领导和决策的岗位",
+                        "能够面对挑战和变革的环境",
+                        "重视公正和直接的组织",
+                        "需要果断和行动力的工作",
+                        "能够发挥影响力的角色"
+                    ],
+                    growthAdvice: [
+                        "学会平衡强势和温和，尊重他人的意见和需求",
+                        "培养示弱和接受帮助的能力",
+                        "在保护和放手之间取得平衡",
+                        "学会管理愤怒和冲动情绪",
+                        "关注他人的感受和需求，不仅仅是目标和结果"
+                    ],
+                    stressState: "在压力下，领袖型的人可能会变得更加强势和控制，过度保护自己和他人。他们可能会变得更加愤怒和冲动，难以听取他人的意见和建议。",
+                    relaxedState: "在放松状态下，领袖型的人能够平衡强势和温和，尊重他人的意见和需求。他们能够信任他人，放手让他人承担责任，同时保持自己的领导力和影响力。",
+                    relationships: "领袖型的人在人际关系中通常表现出直接、坦诚和保护。他们重视公正和公平，善于保护自己和他人，建立坦诚和直接的关系。",
+                    relationshipAdvice: [
+                        "尊重他们的领导力和决策能力",
+                        "理解他们可能不善于表达脆弱和情感",
+                        "给予他们足够的空间和尊重",
+                        "直接坦诚地与他们沟通",
+                        "欣赏他们的保护和正义感"
+                    ]
+                },
+                9: {
+                    name: "和平型",
+                    coreTraits: "和平型的人温和友善，善于调解和建立和谐，善于理解和包容他人。他们重视平衡和稳定，善于创造和平的环境。",
+                    strengths: [
+                        "温和友善，善于理解他人",
+                        "善于调解和建立和谐",
+                        "具有包容和接纳的态度",
+                        "善于创造和平的环境",
+                        "重视平衡和稳定"
+                    ],
+                    challenges: [
+                        "可能过于随和和缺乏主见",
+                        "难以表达自己的需求和意见",
+                        "可能会避免冲突而忽视问题",
+                        "容易拖延和犹豫不决",
+                        "可能会过度关注他人而忽视自己"
+                    ],
+                    workplace: "在工作环境中，和平型的人通常表现出耐心、包容和团队精神。他们善于协调不同意见和建立共识，为团队带来和谐和平衡。",
+                    suitableEnvironments: [
+                        "和谐和稳定的工作环境",
+                        "需要调解和协调的岗位",
+                        "重视团队合作和共识的组织",
+                        "能够提供平衡和稳定的工作",
+                        "允许耐心和细致工作的环境"
+                    ],
+                    growthAdvice: [
+                        "学会表达自己的需求和意见，建立健康的边界",
+                        "在随和和主见之间取得平衡",
+                        "学会面对和处理冲突，而不是逃避",
+                        "培养决策能力，避免过度拖延",
+                        "关注自己的需求和意见，不仅仅是他人的"
+                    ],
+                    stressState: "在压力下，和平型的人可能会变得更加被动和随和，过度关注他人的需求而忽视自己。他们可能会避免冲突而导致问题积累，难以做出决策和采取行动。",
+                    relaxedState: "在放松状态下，和平型的人能够平衡随和和主见，表达自己的需求和意见。他们能够面对和处理冲突，同时保持自己的包容和理解，为团队带来和谐和平衡。",
+                    relationships: "和平型的人在人际关系中通常表现出温和、友善和包容。他们善于理解和接纳他人，重视和谐和稳定的关系，善于调解冲突和建立共识。",
+                    relationshipAdvice: [
+                        "欣赏他们的温和和包容",
+                        "理解他们可能需要时间来表达自己的意见",
+                        "鼓励他们表达自己的需求和意见",
+                        "避免给他们施加过多的压力",
+                        "重视他们创造的和谐和平衡"
+                    ]
+                }
+            };
+            
+            // 人格类型卡片点击事件
+            const typeCards = document.querySelectorAll('.type-card');
+            
+            typeCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    const typeId = this.getAttribute('data-type');
+                    const typeInfo = typeDetails[typeId];
+                    
+                    if (typeInfo) {
+                        modalTitle.textContent = `${typeInfo.name} - 详细解析`;
+                        
+                        // 构建模态框内容
+                        let content = `
+                            <div class="mb-8">
+                                <h4 class="text-xl font-semibold mb-3">核心特质</h4>
+                                <p class="text-gray-600 mb-4">${typeInfo.coreTraits}</p>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div class="bg-green-50 p-4 rounded-lg">
+                                        <h5 class="font-semibold mb-2 text-green-700">优势</h5>
+                                        <ul class="list-disc list-inside text-gray-600 space-y-1">
+                        `;
+                        
+                        typeInfo.strengths.forEach(strength => {
+                            content += `<li>${strength}</li>`;
+                        });
+                        
+                        content += `
+                                    </ul>
+                                </div>
+                                <div class="bg-red-50 p-4 rounded-lg">
+                                    <h5 class="font-semibold mb-2 text-red-700">挑战</h5>
+                                    <ul class="list-disc list-inside text-gray-600 space-y-1">
+                        `;
+                        
+                        typeInfo.challenges.forEach(challenge => {
+                            content += `<li>${challenge}</li>`;
+                        });
+                        
+                        content += `
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-8">
+                            <h4 class="text-xl font-semibold mb-3">职场表现</h4>
+                            <p class="text-gray-600 mb-4">${typeInfo.workplace}</p>
+                            <div class="bg-blue-50 p-4 rounded-lg">
+                                <h5 class="font-semibold mb-2 text-blue-700">适合的工作环境</h5>
+                                <ul class="list-disc list-inside text-gray-600 space-y-1">
+                        `;
+                        
+                        typeInfo.suitableEnvironments.forEach(env => {
+                            content += `<li>${env}</li>`;
+                        });
+                        
+                        content += `
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-8">
+                            <h4 class="text-xl font-semibold mb-3">成长建议</h4>
+                            <ul class="list-disc list-inside text-gray-600 space-y-2">
+                        `;
+                        
+                        typeInfo.growthAdvice.forEach(advice => {
+                            content += `<li>${advice}</li>`;
+                        });
+                        
+                        content += `
+                            </ul>
+                        </div>
+                        
+                        <div class="mb-8">
+                            <h4 class="text-xl font-semibold mb-3">压力与放松状态</h4>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="bg-yellow-50 p-4 rounded-lg">
+                                    <h5 class="font-semibold mb-2 text-yellow-700">压力状态</h5>
+                                    <p class="text-gray-600">${typeInfo.stressState}</p>
+                                </div>
+                                <div class="bg-purple-50 p-4 rounded-lg">
+                                    <h5 class="font-semibold mb-2 text-purple-700">放松状态</h5>
+                                    <p class="text-gray-600">${typeInfo.relaxedState}</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <h4 class="text-xl font-semibold mb-3">人际关系</h4>
+                            <p class="text-gray-600 mb-4">${typeInfo.relationships}</p>
+                            <h5 class="font-semibold mb-2 text-blue-700">与${typeInfo.name}相处的建议</h5>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                        `;
+                        
+                        typeInfo.relationshipAdvice.forEach(advice => {
+                            content += `<li>${advice}</li>`;
+                        });
+                        
+                        content += `
+                                </ul>
+                            </div>
+                        `;
+                        
+                        modalContent.innerHTML = content;
+                        typeModal.classList.remove('hidden');
+                    }
+                });
+            });
+            
+            if (closeModal) {
+                closeModal.addEventListener('click', function() {
+                    typeModal.classList.add('hidden');
+                });
+            }
+            
+            // 点击模态框外部关闭
+            window.addEventListener('click', function(e) {
+                if (e.target === typeModal) {
+                    typeModal.classList.add('hidden');
+                }
+            });
+            
+            // 人际关系类型按钮点击事件
+            const relationshipTypeButtons = document.querySelectorAll('.relationship-type-btn');
+            relationshipTypeButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    relationshipTypeButtons.forEach(btn => btn.classList.remove('active', 'bg-primary', 'text-white'));
+                    this.classList.add('active', 'bg-primary', 'text-white');
+                    // 这里可以根据类型加载不同的内容
+                });
+            });
+            
+            // 职场类型按钮点击事件
+            const careerTypeButtons = document.querySelectorAll('.career-type-btn');
+            careerTypeButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    careerTypeButtons.forEach(btn => btn.classList.remove('active', 'bg-primary', 'text-white'));
+                    this.classList.add('active', 'bg-primary', 'text-white');
+                    // 这里可以根据类型加载不同的内容
+                });
+            });
+            
+            // 测试功能
+            const startTestButton = document.getElementById('start-test');
+            const testIntro = document.getElementById('test-intro');
+            const testContainer = document.getElementById('test-container');
+            const testResult = document.getElementById('test-result');
+            const nextQuestionButton = document.getElementById('next-question');
+            const prevQuestionButton = document.getElementById('prev-question');
+            const retryTestButton = document.getElementById('retry-test');
+            const viewDetailsButton = document.getElementById('view-details');
+            
+            // 测试题目数据
+            const questions = [
+                {
+                    id: 1,
+                    text: "在团队工作中，我更倾向于：",
+                    options: [
+                        { id: 1, text: "确保所有细节都正确无误", score: 1 },
+                        { id: 2, text: "支持和帮助团队成员", score: 2 },
+                        { id: 3, text: "专注于实现目标和取得成果", score: 3 },
+                        { id: 4, text: "提出创新和独特的想法", score: 4 },
+                        { id: 5, text: "分析信息并保持客观", score: 5 },
+                        { id: 6, text: "谨慎考虑可能的风险和问题", score: 6 },
+                        { id: 7, text: "寻找新的机会和可能性", score: 7 },
+                        { id: 8, text: "主导决策并掌控局面", score: 8 },
+                        { id: 9, text: "促进团队和谐与共识", score: 9 }
+                    ]
+                },
+                {
+                    id: 2,
+                    text: "当我面临压力时，我通常会：",
+                    options: [
+                        { id: 1, text: "更加注重规则和标准", score: 1 },
+                        { id: 2, text: "寻求他人的帮助和支持", score: 2 },
+                        { id: 3, text: "加倍努力以证明自己", score: 3 },
+                        { id: 4, text: "反思自己的情感和内心世界", score: 4 },
+                        { id: 5, text: "退缩并寻求更多信息", score: 5 },
+                        { id: 6, text: "变得更加谨慎和多疑", score: 6 },
+                        { id: 7, text: "寻找分散注意力的活动", score: 7 },
+                        { id: 8, text: "变得更加果断和强势", score: 8 },
+                        { id: 9, text: "避免冲突并寻求和平", score: 9 }
+                    ]
+                },
+                {
+                    id: 3,
+                    text: "在人际关系中，我最重视的是：",
+                    options: [
+                        { id: 1, text: "诚实和道德正直", score: 1 },
+                        { id: 2, text: "相互支持和关怀", score: 2 },
+                        { id: 3, text: "相互尊重和认可", score: 3 },
+                        { id: 4, text: "深度理解和情感连接", score: 4 },
+                        { id: 5, text: "独立和空间", score: 5 },
+                        { id: 6, text: "安全和可靠性", score: 6 },
+                        { id: 7, text: "乐趣和共同体验", score: 7 },
+                        { id: 8, text: "坦诚和直接", score: 8 },
+                        { id: 9, text: "和谐和包容", score: 9 }
+                    ]
+                },
+                {
+                    id: 4,
+                    text: "我对成功的定义是：",
+                    options: [
+                        { id: 1, text: "做到最好，符合高标准", score: 1 },
+                        { id: 2, text: "帮助他人并被他人需要", score: 2 },
+                        { id: 3, text: "实现目标并获得认可", score: 3 },
+                        { id: 4, text: "表达真实的自我并创造独特价值", score: 4 },
+                        { id: 5, text: "获得知识和理解", score: 5 },
+                        { id: 6, text: "建立安全和稳定的生活", score: 6 },
+                        { id: 7, text: "拥有丰富的经历和选择", score: 7 },
+                        { id: 8, text: "实现自我并影响他人", score: 8 },
+                        { id: 9, text: "与他人和谐相处并保持内心平静", score: 9 }
+                    ]
+                },
+                {
+                    id: 5,
+                    text: "当我与他人意见不合时，我倾向于：",
+                    options: [
+                        { id: 1, text: "坚持原则，直到证明我是对的", score: 1 },
+                        { id: 2, text: "寻求妥协以维持关系", score: 2 },
+                        { id: 3, text: "寻找双赢的解决方案", score: 3 },
+                        { id: 4, text: "表达我的情感和独特观点", score: 4 },
+                        { id: 5, text: "保持距离并分析情况", score: 5 },
+                        { id: 6, text: "寻求更多信息和保证", score: 6 },
+                        { id: 7, text: "转换话题或寻找新的可能性", score: 7 },
+                        { id: 8, text: "直接表达我的立场", score: 8 },
+                        { id: 9, text: "避免冲突并寻求共识", score: 9 }
+                    ]
+                },
+                {
+                    id: 6,
+                    text: "我工作中最大的动力来源是：",
+                    options: [
+                        { id: 1, text: "追求卓越和完美", score: 1 },
+                        { id: 2, text: "帮助他人和团队成功", score: 2 },
+                        { id: 3, text: "实现目标和获得认可", score: 3 },
+                        { id: 4, text: "创造独特和有意义的工作", score: 4 },
+                        { id: 5, text: "获取知识和解决复杂问题", score: 5 },
+                        { id: 6, text: "确保安全和避免风险", score: 6 },
+                        { id: 7, text: "寻找乐趣和新挑战", score: 7 },
+                        { id: 8, text: "领导和影响他人", score: 8 },
+                        { id: 9, text: "维持和谐和稳定", score: 9 }
+                    ]
+                },
+                {
+                    id: 7,
+                    text: "我最不喜欢的是：",
+                    options: [
+                        { id: 1, text: "混乱和不道德的行为", score: 1 },
+                        { id: 2, text: "被他人忽视或不被需要", score: 2 },
+                        { id: 3, text: "失败和不被认可", score: 3 },
+                        { id: 4, text: "平庸和缺乏深度", score: 4 },
+                        { id: 5, text: "无知和肤浅", score: 5 },
+                        { id: 6, text: "不确定性和风险", score: 6 },
+                        { id: 7, text: "痛苦和限制", score: 7 },
+                        { id: 8, text: "软弱和被控制", score: 8 },
+                        { id: 9, text: "冲突和不和谐", score: 9 }
+                    ]
+                },
+                {
+                    id: 8,
+                    text: "在社交场合中，我通常是：",
+                    options: [
+                        { id: 1, text: "有原则且直接的", score: 1 },
+                        { id: 2, text: "热情且乐于助人的", score: 2 },
+                        { id: 3, text: "自信且善于表现的", score: 3 },
+                        { id: 4, text: "敏感且独特的", score: 4 },
+                        { id: 5, text: "安静且观察的", score: 5 },
+                        { id: 6, text: "谨慎且忠诚的", score: 6 },
+                        { id: 7, text: "活泼且有趣的", score: 7 },
+                        { id: 8, text: "自信且主导的", score: 8 },
+                        { id: 9, text: "随和且包容的", score: 9 }
+                    ]
+                },
+                {
+                    id: 9,
+                    text: "我处理任务的方式是：",
+                    options: [
+                        { id: 1, text: "制定详细计划并严格执行", score: 1 },
+                        { id: 2, text: "根据他人需求调整优先级", score: 2 },
+                        { id: 3, text: "设定目标并高效完成", score: 3 },
+                        { id: 4, text: "跟随灵感并注重质量", score: 4 },
+                        { id: 5, text: "收集信息并深入分析", score: 5 },
+                        { id: 6, text: "谨慎规划并考虑风险", score: 6 },
+                        { id: 7, text: "寻找多种选择并保持灵活", score: 7 },
+                        { id: 8, text: "直接行动并掌控局面", score: 8 },
+                        { id: 9, text: "随波逐流并保持平衡", score: 9 }
+                    ]
+                },
+                {
+                    id: 10,
+                    text: "我对自己的看法是：",
+                    options: [
+                        { id: 1, text: "我应该做得更好", score: 1 },
+                        { id: 2, text: "我应该帮助更多的人", score: 2 },
+                        { id: 3, text: "我应该取得更多成就", score: 3 },
+                        { id: 4, text: "我与众不同且有深度", score: 4 },
+                        { id: 5, text: "我需要更多知识和理解", score: 5 },
+                        { id: 6, text: "我需要更多安全和保障", score: 6 },
+                        { id: 7, text: "我应该享受生活的乐趣", score: 7 },
+                        { id: 8, text: "我应该更坚强和独立", score: 8 },
+                        { id: 9, text: "我应该更平和和包容", score: 9 }
+                    ]
+                },
+                {
+                    id: 11,
+                    text: "当我感到不安时，我会：",
+                    options: [
+                        { id: 1, text: "更加严格地要求自己", score: 1 },
+                        { id: 2, text: "寻求他人的认可和支持", score: 2 },
+                        { id: 3, text: "加倍努力以证明自己", score: 3 },
+                        { id: 4, text: "反思自己的情感和内在世界", score: 4 },
+                        { id: 5, text: "退缩并寻求更多信息", score: 5 },
+                        { id: 6, text: "变得更加警惕和多疑", score: 6 },
+                        { id: 7, text: "寻找分散注意力的活动", score: 7 },
+                        { id: 8, text: "变得更加强势和控制", score: 8 },
+                        { id: 9, text: "避免冲突并寻求和谐", score: 9 }
+                    ]
+                },
+                {
+                    id: 12,
+                    text: "我最欣赏他人的品质是：",
+                    options: [
+                        { id: 1, text: "正直和原则性", score: 1 },
+                        { id: 2, text: "善良和乐于助人", score: 2 },
+                        { id: 3, text: "能力和成就", score: 3 },
+                        { id: 4, text: "独特和创造力", score: 4 },
+                        { id: 5, text: "智慧和知识", score: 5 },
+                        { id: 6, text: "忠诚和可靠性", score: 6 },
+                        { id: 7, text: "乐观和活力", score: 7 },
+                        { id: 8, text: "勇气和领导力", score: 8 },
+                        { id: 9, text: "平和和包容", score: 9 }
+                    ]
+                },
+                {
+                    id: 13,
+                    text: "我做决定的方式是：",
+                    options: [
+                        { id: 1, text: "基于原则和价值观", score: 1 },
+                        { id: 2, text: "考虑他人的需求和感受", score: 2 },
+                        { id: 3, text: "基于结果和效率", score: 3 },
+                        { id: 4, text: "基于直觉和情感", score: 4 },
+                        { id: 5, text: "基于分析和逻辑", score: 5 },
+                        { id: 6, text: "基于谨慎和风险评估", score: 6 },
+                        { id: 7, text: "基于可能性和兴趣", score: 7 },
+                        { id: 8, text: "基于直觉和果断", score: 8 },
+                        { id: 9, text: "基于共识和和谐", score: 9 }
+                    ]
+                },
+                {
+                    id: 14,
+                    text: "我在工作中的优势是：",
+                    options: [
+                        { id: 1, text: "注重细节和质量", score: 1 },
+                        { id: 2, text: "善于团队合作和支持他人", score: 2 },
+                        { id: 3, text: "高效和目标导向", score: 3 },
+                        { id: 4, text: "创意和独特视角", score: 4 },
+                        { id: 5, text: "分析和解决复杂问题", score: 5 },
+                        { id: 6, text: "谨慎和风险管理", score: 6 },
+                        { id: 7, text: "适应力和创造力", score: 7 },
+                        { id: 8, text: "领导力和决策能力", score: 8 },
+                        { id: 9, text: "协调和团队和谐", score: 9 }
+                    ]
+                },
+                {
+                    id: 15,
+                    text: "我对批评的反应是：",
+                    options: [
+                        { id: 1, text: "接受并努力改进", score: 1 },
+                        { id: 2, text: "感到受伤但试图理解", score: 2 },
+                        { id: 3, text: "感到受挫但会证明自己", score: 3 },
+                        { id: 4, text: "感到被误解和受伤", score: 4 },
+                        { id: 5, text: "保持距离并分析批评", score: 5 },
+                        { id: 6, text: "感到焦虑并寻求更多反馈", score: 6 },
+                        { id: 7, text: "感到不愉快并转移注意力", score: 7 },
+                        { id: 8, text: "感到愤怒并为自己辩护", score: 8 },
+                        { id: 9, text: "感到不安并试图维持和平", score: 9 }
+                    ]
+                },
+                {
+                    id: 16,
+                    text: "我在空闲时间喜欢：",
+                    options: [
+                        { id: 1, text: "做有意义和有价值的事情", score: 1 },
+                        { id: 2, text: "与朋友和家人在一起", score: 2 },
+                        { id: 3, text: "追求个人目标和兴趣", score: 3 },
+                        { id: 4, text: "从事创造性活动", score: 4 },
+                        { id: 5, text: "阅读和学习新知识", score: 5 },
+                        { id: 6, text: "做熟悉和安全的事情", score: 6 },
+                        { id: 7, text: "尝试新的活动和体验", score: 7 },
+                        { id: 8, text: "参与有挑战性的活动", score: 8 },
+                        { id: 9, text: "放松和享受宁静时光", score: 9 }
+                    ]
+                },
+                {
+                    id: 17,
+                    text: "我对未来的期望是：",
+                    options: [
+                        { id: 1, text: "变得更好和更完美", score: 1 },
+                        { id: 2, text: "帮助更多的人和世界", score: 2 },
+                        { id: 3, text: "取得更大的成功和认可", score: 3 },
+                        { id: 4, text: "找到更深的意义和真实", score: 4 },
+                        { id: 5, text: "获得更多的知识和理解", score: 5 },
+                        { id: 6, text: "获得更多的安全和稳定", score: 6 },
+                        { id: 7, text: "有更多的乐趣和体验", score: 7 },
+                        { id: 8, text: "实现更大的影响力和自由", score: 8 },
+                        { id: 9, text: "获得更多的和平和平衡", score: 9 }
+                    ]
+                },
+                {
+                    id: 18,
+                    text: "我处理冲突的方式是：",
+                    options: [
+                        { id: 1, text: "坚持原则并寻求公正", score: 1 },
+                        { id: 2, text: "寻求妥协以维持关系", score: 2 },
+                        { id: 3, text: "寻找解决方案并继续前进", score: 3 },
+                        { id: 4, text: "表达情感并寻求理解", score: 4 },
+                        { id: 5, text: "保持距离并分析情况", score: 5 },
+                        { id: 6, text: "寻求支持并谨慎应对", score: 6 },
+                        { id: 7, text: "转换话题或寻找新的可能性", score: 7 },
+                        { id: 8, text: "直面冲突并寻求解决", score: 8 },
+                        { id: 9, text: "避免冲突并寻求和谐", score: 9 }
+                    ]
+                },
+                {
+                    id: 19,
+                    text: "我在团队中的角色通常是：",
+                    options: [
+                        { id: 1, text: "确保质量和标准", score: 1 },
+                        { id: 2, text: "支持和帮助团队成员", score: 2 },
+                        { id: 3, text: "推动团队实现目标", score: 3 },
+                        { id: 4, text: "提供创意和独特视角", score: 4 },
+                        { id: 5, text: "提供分析和专业知识", score: 5 },
+                        { id: 6, text: "识别风险和提供保障", score: 6 },
+                        { id: 7, text: "提供能量和新想法", score: 7 },
+                        { id: 8, text: "领导和做决策", score: 8 },
+                        { id: 9, text: "协调和维持团队和谐", score: 9 }
+                    ]
+                },
+                {
+                    id: 20,
+                    text: "我对变化的态度是：",
+                    options: [
+                        { id: 1, text: "只有在必要时才接受变化", score: 1 },
+                        { id: 2, text: "根据他人的需求接受变化", score: 2 },
+                        { id: 3, text: "视变化为机会和挑战", score: 3 },
+                        { id: 4, text: "视变化为成长和表达的机会", score: 4 },
+                        { id: 5, text: "需要时间适应变化", score: 5 },
+                        { id: 6, text: "对变化持谨慎和怀疑态度", score: 6 },
+                        { id: 7, text: "欢迎变化和新体验", score: 7 },
+                        { id: 8, text: "主动创造变化", score: 8 },
+                        { id: 9, text: "倾向于保持稳定和现状", score: 9 }
+                    ]
+                },
+                {
+                    id: 21,
+                    text: "我最害怕的是：",
+                    options: [
+                        { id: 1, text: "做错事或不完美", score: 1 },
+                        { id: 2, text: "不被需要或被拒绝", score: 2 },
+                        { id: 3, text: "失败或不被认可", score: 3 },
+                        { id: 4, text: "平庸或不被理解", score: 4 },
+                        { id: 5, text: "无知或被剥夺自由", score: 5 },
+                        { id: 6, text: "不安全或被背叛", score: 6 },
+                        { id: 7, text: "痛苦或被限制", score: 7 },
+                        { id: 8, text: "软弱或被控制", score: 8 },
+                        { id: 9, text: "冲突或失去平衡", score: 9 }
+                    ]
+                },
+                {
+                    id: 22,
+                    text: "我与他人沟通的方式是：",
+                    options: [
+                        { id: 1, text: "直接且基于事实", score: 1 },
+                        { id: 2, text: "热情且注重关系", score: 2 },
+                        { id: 3, text: "自信且注重结果", score: 3 },
+                        { id: 4, text: "敏感且富有表达力", score: 4 },
+                        { id: 5, text: "简洁且基于逻辑", score: 5 },
+                        { id: 6, text: "谨慎且寻求确认", score: 6 },
+                        { id: 7, text: "活泼且充满热情", score: 7 },
+                        { id: 8, text: "直接且坚定", score: 8 },
+                        { id: 9, text: "温和且寻求共识", score: 9 }
+                    ]
+                },
+                {
+                    id: 23,
+                    text: "我对自己的要求是：",
+                    options: [
+                        { id: 1, text: "做到最好，不犯错误", score: 1 },
+                        { id: 2, text: "帮助他人，满足他人需求", score: 2 },
+                        { id: 3, text: "取得成功，实现目标", score: 3 },
+                        { id: 4, text: "保持独特，表达真实自我", score: 4 },
+                        { id: 5, text: "获取知识，保持独立", score: 5 },
+                        { id: 6, text: "保持安全，避免风险", score: 6 },
+                        { id: 7, text: "享受生活，寻求乐趣", score: 7 },
+                        { id: 8, text: "保持坚强，掌控局面", score: 8 },
+                        { id: 9, text: "保持平和，避免冲突", score: 9 }
+                    ]
+                },
+                {
+                    id: 24,
+                    text: "我处理情绪的方式是：",
+                    options: [
+                        { id: 1, text: "控制情绪，保持理性", score: 1 },
+                        { id: 2, text: "表达情绪，寻求支持", score: 2 },
+                        { id: 3, text: "压抑情绪，专注于目标", score: 3 },
+                        { id: 4, text: "深入体验情绪，表达情感", score: 4 },
+                        { id: 5, text: "分析情绪，保持距离", score: 5 },
+                        { id: 6, text: "担忧情绪，寻求确认", score: 6 },
+                        { id: 7, text: "转移情绪，寻找积极面", score: 7 },
+                        { id: 8, text: "表达情绪，直接应对", score: 8 },
+                        { id: 9, text: "忽视情绪，维持和平", score: 9 }
+                    ]
+                },
+                {
+                    id: 25,
+                    text: "我对他人的期望是：",
+                    options: [
+                        { id: 1, text: "遵守规则，做事正确", score: 1 },
+                        { id: 2, text: "互相支持，关心他人", score: 2 },
+                        { id: 3, text: "努力工作，追求成功", score: 3 },
+                        { id: 4, text: "真实表达，理解他人", score: 4 },
+                        { id: 5, text: "尊重隐私，保持独立", score: 5 },
+                        { id: 6, text: "忠诚可靠，言行一致", score: 6 },
+                        { id: 7, text: "积极乐观，享受生活", score: 7 },
+                        { id: 8, text: "直接坦诚，尊重他人", score: 8 },
+                        { id: 9, text: "平和包容，避免冲突", score: 9 }
+                    ]
+                },
+                {
+                    id: 26,
+                    text: "我在压力下的表现是：",
+                    options: [
+                        { id: 1, text: "更加严格和挑剔", score: 1 },
+                        { id: 2, text: "更加关心和帮助他人", score: 2 },
+                        { id: 3, text: "更加努力和高效", score: 3 },
+                        { id: 4, text: "更加情绪化和退缩", score: 4 },
+                        { id: 5, text: "更加孤僻和理性", score: 5 },
+                        { id: 6, text: "更加焦虑和多疑", score: 6 },
+                        { id: 7, text: "更加分散和逃避", score: 7 },
+                        { id: 8, text: "更加强势和控制", score: 8 },
+                        { id: 9, text: "更加被动和随和", score: 9 }
+                    ]
+                },
+                {
+                    id: 27,
+                    text: "我对成功的最大障碍是：",
+                    options: [
+                        { id: 1, text: "对自己要求过高", score: 1 },
+                        { id: 2, text: "过于关注他人需求", score: 2 },
+                        { id: 3, text: "害怕失败和被拒绝", score: 3 },
+                        { id: 4, text: "情绪波动和自我怀疑", score: 4 },
+                        { id: 5, text: "过度思考和退缩", score: 5 },
+                        { id: 6, text: "焦虑和缺乏自信", score: 6 },
+                        { id: 7, text: "分散注意力和缺乏专注", score: 7 },
+                        { id: 8, text: "过于强势和缺乏耐心", score: 8 },
+                        { id: 9, text: "过于随和和缺乏主见", score: 9 }
+                    ]
+                },
+                {
+                    id: 28,
+                    text: "我对他人的评价是：",
+                    options: [
+                        { id: 1, text: "基于他们的行为和原则", score: 1 },
+                        { id: 2, text: "基于他们的善良和关怀", score: 2 },
+                        { id: 3, text: "基于他们的成就和能力", score: 3 },
+                        { id: 4, text: "基于他们的独特和深度", score: 4 },
+                        { id: 5, text: "基于他们的知识和理性", score: 5 },
+                        { id: 6, text: "基于他们的忠诚和可靠性", score: 6 },
+                        { id: 7, text: "基于他们的乐观和活力", score: 7 },
+                        { id: 8, text: "基于他们的勇气和领导力", score: 8 },
+                        { id: 9, text: "基于他们的平和和包容", score: 9 }
+                    ]
+                },
+                {
+                    id: 29,
+                    text: "我解决问题的方式是：",
+                    options: [
+                        { id: 1, text: "遵循规则和标准程序", score: 1 },
+                        { id: 2, text: "寻求他人的建议和支持", score: 2 },
+                        { id: 3, text: "设定目标并寻找高效解决方案", score: 3 },
+                        { id: 4, text: "依靠直觉和创造力", score: 4 },
+                        { id: 5, text: "收集信息并深入分析", score: 5 },
+                        { id: 6, text: "考虑所有可能性和风险", score: 6 },
+                        { id: 7, text: "寻找多种选择和新方法", score: 7 },
+                        { id: 8, text: "直接行动并承担责任", score: 8 },
+                        { id: 9, text: "寻求共识和平衡", score: 9 }
+                    ]
+                },
+                {
+                    id: 30,
+                    text: "我对生活的态度是：",
+                    options: [
+                        { id: 1, text: "应该不断改进和完善", score: 1 },
+                        { id: 2, text: "应该帮助他人和奉献", score: 2 },
+                        { id: 3, text: "应该追求成功和成就", score: 3 },
+                        { id: 4, text: "应该寻找意义和真实", score: 4 },
+                        { id: 5, text: "应该追求知识和理解", score: 5 },
+                        { id: 6, text: "应该寻求安全和稳定", score: 6 },
+                        { id: 7, text: "应该享受乐趣和体验", score: 7 },
+                        { id: 8, text: "应该勇于挑战和领导", score: 8 },
+                        { id: 9, text: "应该保持平和和和谐", score: 9 }
+                    ]
+                },
+                {
+                    id: 31,
+                    text: "我在人际关系中的弱点是：",
+                    options: [
+                        { id: 1, text: "过于挑剔和严格", score: 1 },
+                        { id: 2, text: "过于付出和忽视自己", score: 2 },
+                        { id: 3, text: "过于关注形象和成就", score: 3 },
+                        { id: 4, text: "过于情绪化和敏感", score: 4 },
+                        { id: 5, text: "过于独立和疏离", score: 5 },
+                        { id: 6, text: "过于焦虑和多疑", score: 6 },
+                        { id: 7, text: "过于分散和逃避痛苦", score: 7 },
+                        { id: 8, text: "过于强势和缺乏耐心", score: 8 },
+                        { id: 9, text: "过于随和和缺乏主见", score: 9 }
+                    ]
+                },
+                {
+                    id: 32,
+                    text: "我对工作的期望是：",
+                    options: [
+                        { id: 1, text: "有意义且符合道德", score: 1 },
+                        { id: 2, text: "能够帮助他人和团队", score: 2 },
+                        { id: 3, text: "能够带来成功和认可", score: 3 },
+                        { id: 4, text: "能够表达创造力和独特性", score: 4 },
+                        { id: 5, text: "能够提供知识和挑战", score: 5 },
+                        { id: 6, text: "能够提供安全和稳定", score: 6 },
+                        { id: 7, text: "能够提供乐趣和变化", score: 7 },
+                        { id: 8, text: "能够提供挑战和领导力", score: 8 },
+                        { id: 9, text: "能够提供平和和平衡", score: 9 }
+                    ]
+                },
+                {
+                    id: 33,
+                    text: "我对他人的帮助方式是：",
+                    options: [
+                        { id: 1, text: "提供指导和建议", score: 1 },
+                        { id: 2, text: "提供实际帮助和支持", score: 2 },
+                        { id: 3, text: "提供资源和机会", score: 3 },
+                        { id: 4, text: "提供情感支持和理解", score: 4 },
+                        { id: 5, text: "提供知识和分析", score: 5 },
+                        { id: 6, text: "提供忠诚和可靠性", score: 6 },
+                        { id: 7, text: "提供乐趣和新体验", score: 7 },
+                        { id: 8, text: "提供保护和领导力", score: 8 },
+                        { id: 9, text: "提供倾听和和谐", score: 9 }
+                    ]
+                },
+                {
+                    id: 34,
+                    text: "我对变化的适应方式是：",
+                    options: [
+                        { id: 1, text: "缓慢适应，坚持原则", score: 1 },
+                        { id: 2, text: "根据他人需求调整", score: 2 },
+                        { id: 3, text: "快速适应，寻找机会", score: 3 },
+                        { id: 4, text: "深入反思，寻找意义", score: 4 },
+                        { id: 5, text: "收集信息，谨慎应对", score: 5 },
+                        { id: 6, text: "寻求支持，谨慎应对", score: 6 },
+                        { id: 7, text: "积极探索，寻找乐趣", score: 7 },
+                        { id: 8, text: "主动引领，掌控变化", score: 8 },
+                        { id: 9, text: "被动适应，维持平衡", score: 9 }
+                    ]
+                },
+                {
+                    id: 35,
+                    text: "我对自己的最大期望是：",
+                    options: [
+                        { id: 1, text: "成为更好的人", score: 1 },
+                        { id: 2, text: "帮助更多的人", score: 2 },
+                        { id: 3, text: "取得更大的成功", score: 3 },
+                        { id: 4, text: "找到真实的自我", score: 4 },
+                        { id: 5, text: "获得更多的知识", score: 5 },
+                        { id: 6, text: "获得更多的安全感", score: 6 },
+                        { id: 7, text: "享受更多的乐趣", score: 7 },
+                        { id: 8, text: "实现更大的影响力", score: 8 },
+                        { id: 9, text: "获得更多的内心平静", score: 9 }
+                    ]
+                },
+                {
+                    id: 36,
+                    text: "我在团队中的沟通方式是：",
+                    options: [
+                        { id: 1, text: "直接且基于事实", score: 1 },
+                        { id: 2, text: "热情且注重关系", score: 2 },
+                        { id: 3, text: "自信且注重结果", score: 3 },
+                        { id: 4, text: "敏感且富有表达力", score: 4 },
+                        { id: 5, text: "简洁且基于逻辑", score: 5 },
+                        { id: 6, text: "谨慎且寻求确认", score: 6 },
+                        { id: 7, text: "活泼且充满热情", score: 7 },
+                        { id: 8, text: "直接且坚定", score: 8 },
+                        { id: 9, text: "温和且寻求共识", score: 9 }
+                    ]
+                },
+                {
+                    id: 37,
+                    text: "我对失败的反应是：",
+                    options: [
+                        { id: 1, text: "分析原因并改进", score: 1 },
+                        { id: 2, text: "寻求他人的支持和安慰", score: 2 },
+                        { id: 3, text: "感到受挫但继续努力", score: 3 },
+                        { id: 4, text: "感到沮丧且自我怀疑", score: 4 },
+                        { id: 5, text: "退缩并反思", score: 5 },
+                        { id: 6, text: "感到焦虑且寻求保证", score: 6 },
+                        { id: 7, text: "转移注意力并寻找新机会", score: 7 },
+                        { id: 8, text: "感到愤怒且更加努力", score: 8 },
+                        { id: 9, text: "感到不安且试图维持和平", score: 9 }
+                    ]
+                },
+                {
+                    id: 38,
+                    text: "我对他人的信任基础是：",
+                    options: [
+                        { id: 1, text: "他们的道德和原则", score: 1 },
+                        { id: 2, text: "他们的善良和关怀", score: 2 },
+                        { id: 3, text: "他们的能力和成就", score: 3 },
+                        { id: 4, text: "他们的真实性和深度", score: 4 },
+                        { id: 5, text: "他们的知识和理性", score: 5 },
+                        { id: 6, text: "他们的忠诚和可靠性", score: 6 },
+                        { id: 7, text: "他们的乐观和活力", score: 7 },
+                        { id: 8, text: "他们的勇气和正直", score: 8 },
+                        { id: 9, text: "他们的平和和包容", score: 9 }
+                    ]
+                },
+                {
+                    id: 39,
+                    text: "我处理任务的优先级是：",
+                    options: [
+                        { id: 1, text: "基于重要性和原则", score: 1 },
+                        { id: 2, text: "基于他人的需求", score: 2 },
+                        { id: 3, text: "基于目标和结果", score: 3 },
+                        { id: 4, text: "基于兴趣和创造力", score: 4 },
+                        { id: 5, text: "基于知识和理解", score: 5 },
+                        { id: 6, text: "基于安全和风险", score: 6 },
+                        { id: 7, text: "基于乐趣和多样性", score: 7 },
+                        { id: 8, text: "基于挑战和影响力", score: 8 },
+                        { id: 9, text: "基于和谐和平衡", score: 9 }
+                    ]
+                },
+                {
+                    id: 40,
+                    text: "我对生活的最大满足感来自：",
+                    options: [
+                        { id: 1, text: "做正确的事情", score: 1 },
+                        { id: 2, text: "帮助他人", score: 2 },
+                        { id: 3, text: "取得成功", score: 3 },
+                        { id: 4, text: "表达真实自我", score: 4 },
+                        { id: 5, text: "获得知识", score: 5 },
+                        { id: 6, text: "感到安全", score: 6 },
+                        { id: 7, text: "享受生活", score: 7 },
+                        { id: 8, text: "实现自我", score: 8 },
+                        { id: 9, text: "内心平静", score: 9 }
+                    ]
+                },
+                {
+                    id: 41,
+                    text: "我在压力下的思维方式是：",
+                    options: [
+                        { id: 1, text: "更加批判和挑剔", score: 1 },
+                        { id: 2, text: "更加关注他人需求", score: 2 },
+                        { id: 3, text: "更加聚焦和高效", score: 3 },
+                        { id: 4, text: "更加情绪化和深入", score: 4 },
+                        { id: 5, text: "更加理性和疏离", score: 5 },
+                        { id: 6, text: "更加焦虑和多疑", score: 6 },
+                        { id: 7, text: "更加分散和逃避", score: 7 },
+                        { id: 8, text: "更加果断和强势", score: 8 },
+                        { id: 9, text: "更加模糊和被动", score: 9 }
+                    ]
+                },
+                {
+                    id: 42,
+                    text: "我对他人的影响力来自：",
+                    options: [
+                        { id: 1, text: "我的原则和榜样", score: 1 },
+                        { id: 2, text: "我的关怀和支持", score: 2 },
+                        { id: 3, text: "我的成就和能力", score: 3 },
+                        { id: 4, text: "我的创造力和独特性", score: 4 },
+                        { id: 5, text: "我的知识和分析", score: 5 },
+                        { id: 6, text: "我的忠诚和可靠性", score: 6 },
+                        { id: 7, text: "我的乐观和活力", score: 7 },
+                        { id: 8, text: "我的勇气和领导力", score: 8 },
+                        { id: 9, text: "我的平和和包容", score: 9 }
+                    ]
+                },
+                {
+                    id: 43,
+                    text: "我对自己的最大批评是：",
+                    options: [
+                        { id: 1, text: "我不够完美", score: 1 },
+                        { id: 2, text: "我不够关心他人", score: 2 },
+                        { id: 3, text: "我不够成功", score: 3 },
+                        { id: 4, text: "我不够真实", score: 4 },
+                        { id: 5, text: "我不够聪明", score: 5 },
+                        { id: 6, text: "我不够安全", score: 6 },
+                        { id: 7, text: "我不够快乐", score: 7 },
+                        { id: 8, text: "我不够坚强", score: 8 },
+                        { id: 9, text: "我不够平和", score: 9 }
+                    ]
+                },
+                {
+                    id: 44,
+                    text: "我对未来的规划方式是：",
+                    options: [
+                        { id: 1, text: "制定详细计划并严格执行", score: 1 },
+                        { id: 2, text: "根据他人需求调整计划", score: 2 },
+                        { id: 3, text: "设定目标并灵活调整", score: 3 },
+                        { id: 4, text: "跟随灵感并保持开放", score: 4 },
+                        { id: 5, text: "收集信息并深入分析", score: 5 },
+                        { id: 6, text: "谨慎规划并考虑风险", score: 6 },
+                        { id: 7, text: "保持灵活并寻找机会", score: 7 },
+                        { id: 8, text: "设定方向并果断行动", score: 8 },
+                        { id: 9, text: "随波逐流并保持平衡", score: 9 }
+                    ]
+                },
+                {
+                    id: 45,
+                    text: "我对九型人格的理解是：",
+                    options: [
+                        { id: 1, text: "一种帮助自我改进的工具", score: 1 },
+                        { id: 2, text: "一种帮助理解他人的工具", score: 2 },
+                        { id: 3, text: "一种帮助取得成功的工具", score: 3 },
+                        { id: 4, text: "一种帮助自我表达的工具", score: 4 },
+                        { id: 5, text: "一种帮助理解人性的工具", score: 5 },
+                        { id: 6, text: "一种帮助感到安全的工具", score: 6 },
+                        { id: 7, text: "一种帮助享受生活的工具", score: 7 },
+                        { id: 8, text: "一种帮助影响他人的工具", score: 8 },
+                        { id: 9, text: "一种帮助维持和谐的工具", score: 9 }
+                    ]
+                }
+            ];
+            
+            // 存储用户答案
+            const userAnswers = {};
+            
+            // 加载题目函数
+            function loadQuestion(questionId) {
+                const question = questions.find(q => q.id === questionId);
+                if (!question) return;
+                
+                const questionText = document.getElementById('question-text');
+                const optionsContainer = document.querySelector('#question-card .space-y-3');
+                
+                if (questionText && optionsContainer) {
+                    questionText.textContent = question.text;
+                    
+                    // 清空现有选项
+                    optionsContainer.innerHTML = '';
+                    
+                    // 添加新选项
+                    question.options.forEach(option => {
+                        const optionDiv = document.createElement('div');
+                        optionDiv.className = 'option flex items-center p-3 border rounded-lg hover:bg-gray-50 cursor-pointer';
+                        optionDiv.setAttribute('data-score', option.score);
+                        
+                        const isSelected = userAnswers[questionId] === option.score;
+                        
+                        optionDiv.innerHTML = `
+                            <input type="radio" name="question" id="option-${option.id}" class="mr-3" ${isSelected ? 'checked' : ''}>
+                            <label for="option-${option.id}">${option.text}</label>
+                        `;
+                        
+                        optionDiv.addEventListener('click', function() {
+                            const radio = this.querySelector('input[type="radio"]');
+                            radio.checked = true;
+                            userAnswers[questionId] = option.score;
+                            
+                            // 自动跳转到下一题
+                            setTimeout(() => {
+                                // 获取当前问题编号
+                                const currentQuestionElement = document.getElementById('current-question');
+                                const progressBar = document.getElementById('progress-bar');
+                                const progressPercent = document.getElementById('progress-percent');
+                                
+                                if (currentQuestionElement) {
+                                    let currentQuestion = parseInt(currentQuestionElement.textContent);
+                                    currentQuestion++;
+                                    
+                                    if (currentQuestion > 45) {
+                                        // 测试完成，计算结果
+                                        calculateResults();
+                                        
+                                        // 显示结果
+                                        testContainer.classList.add('hidden');
+                                        testResult.classList.remove('hidden');
+                                        
+                                        return;
+                                    }
+                                    
+                                    currentQuestionElement.textContent = currentQuestion;
+                                    
+                                    // 更新进度条
+                                    const progress = (currentQuestion / 45) * 100;
+                                    progressBar.style.width = `${progress}%`;
+                                    progressPercent.textContent = `${Math.round(progress)}%`;
+                                    
+                                    // 更新上一题按钮状态
+                                    if (prevQuestionButton) {
+                                        prevQuestionButton.classList.remove('opacity-50', 'cursor-not-allowed');
+                                        prevQuestionButton.disabled = false;
+                                    }
+                                    
+                                    // 加载新的题目
+                                    loadQuestion(currentQuestion);
+                                }
+                            }, 500); // 延迟500毫秒跳转，给用户反馈时间
+                        });
+                        
+                        optionsContainer.appendChild(optionDiv);
+                    });
+                }
+            }
+            
+            // 初始化第一题
+            loadQuestion(1);
+            
+            // 计算测试结果
+            function calculateResults() {
+                // 初始化各类型得分
+                const scores = {
+                    1: 0, // 完美型
+                    2: 0, // 助人型
+                    3: 0, // 成就型
+                    4: 0, // 独特型
+                    5: 0, // 理智型
+                    6: 0, // 忠诚型
+                    7: 0, // 活跃型
+                    8: 0, // 领袖型
+                    9: 0  // 和平型
+                };
+                
+                // 计算各类型得分
+                for (const questionId in userAnswers) {
+                    const score = userAnswers[questionId];
+                    scores[score]++;
+                }
+                
+                // 找出最高分
+                let maxScore = 0;
+                let primaryType = 1;
+                
+                for (const type in scores) {
+                    if (scores[type] > maxScore) {
+                        maxScore = scores[type];
+                        primaryType = parseInt(type);
+                    }
+                }
+                
+                // 更新结果页面
+                updateResultPage(scores, primaryType);
+            }
+            
+            // 更新结果页面
+            function updateResultPage(scores, primaryType) {
+                // 更新主要类型
+                const primaryTypeElement = document.getElementById('primary-type');
+                if (primaryTypeElement) {
+                    const typeNames = {
+                        1: '完美型',
+                        2: '助人型',
+                        3: '成就型',
+                        4: '独特型',
+                        5: '理智型',
+                        6: '忠诚型',
+                        7: '活跃型',
+                        8: '领袖型',
+                        9: '和平型'
+                    };
+                    
+                    const typeTraits = {
+                        1: '原则性强、追求完美、善于改进',
+                        2: '富有同情心、乐于助人、善于人际关系',
+                        3: '目标导向、高效务实、善于表现',
+                        4: '富有创造力、情感丰富、追求独特',
+                        5: '理性分析、独立思考、知识渊博',
+                        6: '谨慎可靠、忠诚负责、善于规划',
+                        7: '乐观开朗、富有创意、追求刺激',
+                        8: '自信果断、勇于挑战、善于领导',
+                        9: '温和友善、善于调解、追求和谐'
+                    };
+                    
+                    const typeColors = {
+                        1: 'type1',
+                        2: 'type2',
+                        3: 'type3',
+                        4: 'type4',
+                        5: 'type5',
+                        6: 'type6',
+                        7: 'type7',
+                        8: 'type8',
+                        9: 'type9'
+                    };
+                    
+                    primaryTypeElement.innerHTML = `
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-${typeColors[primaryType]} rounded-full flex items-center justify-center mr-4">
+                                <span class="text-white font-bold text-xl">${primaryType}</span>
+                            </div>
+                            <div>
+                                <h5 class="text-xl font-bold">${typeNames[primaryType]}</h5>
+                                <p class="text-gray-600">${typeTraits[primaryType]}</p>
+                            </div>
+                        </div>
+                    `;
+                }
+                
+                // 更新结果解读
+                const resultInterpretation = document.querySelector('#test-result p');
+                if (resultInterpretation) {
+                    const interpretations = {
+                        1: '您的测试结果显示，您最倾向于完美型人格。完美型的人通常具有强烈的原则性和正义感，追求完美和改进。他们善于分析问题，发现错误，并推动事情达到高标准。在工作中，您可能表现出严谨、自律和对细节的关注，善于确保质量和准确性。',
+                        2: '您的测试结果显示，您最倾向于助人型人格。助人型的人通常富有同情心和同理心，善于理解他人的需求并提供帮助。他们重视人际关系，乐于支持和关怀他人。在工作中，您可能表现出合作、支持和团队精神，善于建立良好的工作关系。',
+                        3: '您的测试结果显示，您最倾向于成就型人格。成就型的人通常具有强烈的目标感和行动力，渴望成功和被认可。他们善于适应环境，能够根据不同的情境调整自己的表现，以达到最佳效果。在工作中，您可能表现出高效、务实和结果导向的特点，善于激励自己和他人追求卓越。',
+                        4: '您的测试结果显示，您最倾向于独特型人格。独特型的人通常富有创造力和想象力，善于表达自己的情感和独特视角。他们追求真实和深度，渴望找到自己的独特价值和意义。在工作中，您可能表现出创意、敏感和对美的追求，善于提出独特的想法和解决方案。',
+                        5: '您的测试结果显示，您最倾向于理智型人格。理智型的人通常善于分析和思考，追求知识和理解。他们喜欢独立思考，善于从复杂的信息中提取关键 insights。在工作中，您可能表现出理性、客观和深度思考的特点，善于解决复杂问题和提供专业分析。',
+                        6: '您的测试结果显示，您最倾向于忠诚型人格。忠诚型的人通常具有强烈的责任感和忠诚度，善于规划和预防风险。他们重视安全和稳定，善于建立可靠的系统和流程。在工作中，您可能表现出谨慎、可靠和团队精神，善于确保项目的顺利进行和团队的稳定。',
+                        7: '您的测试结果显示，您最倾向于活跃型人格。活跃型的人通常乐观开朗，富有创意和活力，善于寻找新的机会和体验。他们喜欢多样性和变化，善于从不同角度思考问题。在工作中，您可能表现出热情、灵活和创新的特点，善于提出新想法和推动变革。',
+                        8: '您的测试结果显示，您最倾向于领袖型人格。领袖型的人通常自信果断，勇于挑战和领导，善于掌控局面和做出决策。他们重视公正和直接，善于保护自己和他人。在工作中，您可能表现出果断、自信和领导力，善于带领团队克服困难和实现目标。',
+                        9: '您的测试结果显示，您最倾向于和平型人格。和平型的人通常温和友善，善于调解和建立和谐，善于理解和包容他人。他们重视平衡和稳定，善于创造和平的环境。在工作中，您可能表现出耐心、包容和团队精神，善于协调不同意见和建立共识。'
+                    };
+                    
+                    // 更新第一个段落
+                    resultInterpretation.textContent = interpretations[primaryType];
+                    
+                    // 更新第二个段落
+                    const paragraphs = document.querySelectorAll('#test-result p');
+                    if (paragraphs.length > 1) {
+                        const secondParagraphs = {
+                            1: '您可能会对自己和他人有较高的期望，努力做到最好。在压力下，您可能会变得更加挑剔和严格。您的优势是善于发现问题并推动改进，劣势是可能过于追求完美而导致拖延或对自己和他人过于苛刻。',
+                            2: '您可能会非常关注他人的需求，乐于提供帮助和支持。在压力下，您可能会变得过于付出而忽视自己的需求。您的优势是善于建立良好的人际关系和团队合作，劣势是可能过于关注他人而忽视自己的需求和边界。',
+                            3: '您可能会非常在意自己的形象和他人的评价，努力在各种场合中展现出最好的一面。在压力下，您可能会变得更加工作狂和表面化。您的优势是善于设定目标并高效完成，劣势是可能过于关注成功和形象而忽视内在需求和真实情感。',
+                            4: '您可能会非常关注自己的情感和内在世界，追求独特和深度。在压力下，您可能会变得更加情绪化和退缩。您的优势是善于表达情感和创造独特价值，劣势是可能过于敏感和自我中心。',
+                            5: '您可能会非常重视知识和理解，喜欢独立思考和学习。在压力下，您可能会变得更加孤僻和理性。您的优势是善于分析问题和提供专业见解，劣势是可能过于理性和疏离而忽视情感和实际需求。',
+                            6: '您可能会非常重视安全和稳定，善于规划和预防风险。在压力下，您可能会变得更加焦虑和多疑。您的优势是善于建立可靠的系统和流程，劣势是可能过于谨慎和担忧而错过机会。',
+                            7: '您可能会非常喜欢新的体验和机会，善于从不同角度思考问题。在压力下，您可能会变得更加分散和逃避。您的优势是善于创新和适应变化，劣势是可能过于分散和缺乏专注。',
+                            8: '您可能会非常自信和果断，善于领导和做出决策。在压力下，您可能会变得更加强势和控制。您的优势是善于带领团队和克服困难，劣势是可能过于强势和缺乏耐心。',
+                            9: '您可能会非常重视和谐和平衡，善于理解和包容他人。在压力下，您可能会变得更加被动和随和。您的优势是善于协调不同意见和建立共识，劣势是可能过于随和和缺乏主见。'
+                        };
+                        
+                        paragraphs[1].textContent = secondParagraphs[primaryType];
+                    }
+                }
+                
+                // 更新查看详情按钮
+                const viewDetailsButton = document.getElementById('view-details');
+                if (viewDetailsButton) {
+                    viewDetailsButton.setAttribute('data-type', primaryType);
+                }
+                
+                // 初始化结果图表
+                initResultChart(scores);
+            }
+            
+            if (startTestButton) {
+                startTestButton.addEventListener('click', function() {
+                    testIntro.classList.add('hidden');
+                    testContainer.classList.remove('hidden');
+                });
+            }
+            
+            if (nextQuestionButton) {
+                nextQuestionButton.addEventListener('click', function() {
+                    const currentQuestionElement = document.getElementById('current-question');
+                    const progressBar = document.getElementById('progress-bar');
+                    const progressPercent = document.getElementById('progress-percent');
+                    
+                    if (currentQuestionElement) {
+                        let currentQuestion = parseInt(currentQuestionElement.textContent);
+                        
+                        // 检查是否已选择选项
+                        if (!userAnswers[currentQuestion]) {
+                            alert('请选择一个选项');
+                            return;
+                        }
+                        
+                        currentQuestion++;
+                        
+                        if (currentQuestion > 45) {
+                            // 测试完成，计算结果
+                            calculateResults();
+                            
+                            // 显示结果
+                            testContainer.classList.add('hidden');
+                            testResult.classList.remove('hidden');
+                            
+                            return;
+                        }
+                        
+                        currentQuestionElement.textContent = currentQuestion;
+                        
+                        // 更新进度条
+                        const progress = (currentQuestion / 45) * 100;
+                        progressBar.style.width = `${progress}%`;
+                        progressPercent.textContent = `${Math.round(progress)}%`;
+                        
+                        // 更新上一题按钮状态
+                        if (prevQuestionButton) {
+                            prevQuestionButton.classList.remove('opacity-50', 'cursor-not-allowed');
+                            prevQuestionButton.disabled = false;
+                        }
+                        
+                        // 加载新的题目
+                        loadQuestion(currentQuestion);
+                    }
+                });
+            }
+            
+            if (prevQuestionButton) {
+                prevQuestionButton.addEventListener('click', function() {
+                    const currentQuestionElement = document.getElementById('current-question');
+                    const progressBar = document.getElementById('progress-bar');
+                    const progressPercent = document.getElementById('progress-percent');
+                    
+                    if (currentQuestionElement) {
+                        let currentQuestion = parseInt(currentQuestionElement.textContent);
+                        currentQuestion--;
+                        
+                        if (currentQuestion < 1) {
+                            currentQuestion = 1;
+                        }
+                        
+                        currentQuestionElement.textContent = currentQuestion;
+                        
+                        // 更新进度条
+                        const progress = (currentQuestion / 45) * 100;
+                        progressBar.style.width = `${progress}%`;
+                        progressPercent.textContent = `${Math.round(progress)}%`;
+                        
+                        // 更新上一题按钮状态
+                        if (currentQuestion === 1) {
+                            prevQuestionButton.classList.add('opacity-50', 'cursor-not-allowed');
+                            prevQuestionButton.disabled = true;
+                        }
+                        
+                        // 加载上一题
+                        loadQuestion(currentQuestion);
+                    }
+                });
+            }
+            
+            if (retryTestButton) {
+                retryTestButton.addEventListener('click', function() {
+                    testResult.classList.add('hidden');
+                    testIntro.classList.remove('hidden');
+                    
+                    // 重置测试状态
+                    const currentQuestionElement = document.getElementById('current-question');
+                    const progressBar = document.getElementById('progress-bar');
+                    const progressPercent = document.getElementById('progress-percent');
+                    
+                    if (currentQuestionElement) {
+                        currentQuestionElement.textContent = '1';
+                    }
+                    
+                    if (progressBar) {
+                        progressBar.style.width = '2.22%';
+                    }
+                    
+                    if (progressPercent) {
+                        progressPercent.textContent = '2%';
+                    }
+                    
+                    if (prevQuestionButton) {
+                        prevQuestionButton.classList.add('opacity-50', 'cursor-not-allowed');
+                        prevQuestionButton.disabled = true;
+                    }
+                });
+            }
+            
+            // 选项点击事件已经在loadQuestion函数中实现
+            
+            // 团队协作模拟器功能
+            const teamMemberButtons = document.querySelectorAll('.team-member-btn');
+            const teamMembersContainer = document.getElementById('team-members');
+            const clearTeamButton = document.getElementById('clear-team');
+            
+            if (teamMemberButtons && teamMembersContainer) {
+                teamMemberButtons.forEach(button => {
+                    button.addEventListener('click', function() {
+                        const typeId = this.getAttribute('data-type');
+                        const typeNames = {
+                            '1': '完美型',
+                            '2': '助人型',
+                            '3': '成就型',
+                            '4': '独特型',
+                            '5': '理智型',
+                            '6': '忠诚型',
+                            '7': '活跃型',
+                            '8': '领袖型',
+                            '9': '和平型'
+                        };
+                        
+                        const typeTraits = {
+                            '1': '原则性强、追求完美',
+                            '2': '富有同情心、乐于助人',
+                            '3': '目标导向、高效务实',
+                            '4': '富有创造力、情感丰富',
+                            '5': '理性分析、独立思考',
+                            '6': '谨慎可靠、忠诚负责',
+                            '7': '乐观开朗、富有创意',
+                            '8': '自信果断、勇于挑战',
+                            '9': '温和友善、善于调解'
+                        };
+                        
+                        const typeColorClass = `bg-type${typeId}`;
+                        
+                        const memberElement = document.createElement('div');
+                        memberElement.className = 'team-member bg-white border rounded-lg p-4 flex items-center';
+                        memberElement.innerHTML = `
+                            <div class="w-10 h-10 ${typeColorClass} rounded-full flex items-center justify-center mr-3">
+                                <span class="text-white font-bold">${typeId}</span>
+                            </div>
+                            <div class="flex-1">
+                                <h5 class="font-medium">${typeNames[typeId]}</h5>
+                                <p class="text-sm text-gray-500">${typeTraits[typeId]}</p>
+                            </div>
+                            <button class="remove-member text-gray-400 hover:text-gray-600">
+                                <i class="fa fa-times"></i>
+                            </button>
+                        `;
+                        
+                        teamMembersContainer.appendChild(memberElement);
+                        
+                        // 添加删除成员事件
+                        const removeButton = memberElement.querySelector('.remove-member');
+                        removeButton.addEventListener('click', function() {
+                            memberElement.remove();
+                            updateTeamChart();
+                        });
+                        
+                        updateTeamChart();
+                    });
+                });
+            }
+            
+            if (clearTeamButton) {
+                clearTeamButton.addEventListener('click', function() {
+                    if (teamMembersContainer) {
+                        teamMembersContainer.innerHTML = '';
+                        updateTeamChart();
+                    }
+                });
+            }
+            
+            // 初始化团队角色图表
+            initTeamChart();
+        });
+        
+        // 初始化结果图表
+        function initResultChart(scores) {
+            const ctx = document.getElementById('result-chart');
+            
+            if (ctx) {
+                // 如果没有提供scores，则使用默认值
+                if (!scores) {
+                    scores = {
+                        1: 25,
+                        2: 30,
+                        3: 85,
+                        4: 40,
+                        5: 60,
+                        6: 50,
+                        7: 65,
+                        8: 45,
+                        9: 70
+                    };
+                }
+                
+                new Chart(ctx, {
+                    type: 'radar',
+                    data: {
+                        labels: ['完美型', '助人型', '成就型', '独特型', '理智型', '忠诚型', '活跃型', '领袖型', '和平型'],
+                        datasets: [{
+                            label: '您的得分',
+                            data: [
+                                scores[1], 
+                                scores[2], 
+                                scores[3], 
+                                scores[4], 
+                                scores[5], 
+                                scores[6], 
+                                scores[7], 
+                                scores[8], 
+                                scores[9]
+                            ],
+                            backgroundColor: 'rgba(26, 86, 219, 0.2)',
+                            borderColor: 'rgba(26, 86, 219, 1)',
+                            borderWidth: 2,
+                            pointBackgroundColor: 'rgba(26, 86, 219, 1)',
+                            pointRadius: 4
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            r: {
+                                beginAtZero: true,
+                                max: 45,
+                                ticks: {
+                                    stepSize: 9
+                                }
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                display: false
+                            }
+                        }
+                    }
+                });
+            }
+        }
+        
+        // 初始化团队角色图表
+        function initTeamChart() {
+            const ctx = document.getElementById('team-role-chart');
+            
+            if (ctx) {
+                new Chart(ctx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['成就型', '理智型', '活跃型', '和平型'],
+                        datasets: [{
+                            data: [1, 1, 1, 1],
+                            backgroundColor: [
+                                '#eab308',
+                                '#3b82f6',
+                                '#f43f5e',
+                                '#0ea5e9'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: 'right'
+                            }
+                        }
+                    }
+                });
+            }
+        }
+        
+        // 更新团队角色图表
+        function updateTeamChart() {
+            const ctx = document.getElementById('team-role-chart');
+            
+            if (ctx && ctx.chart) {
+                // 获取当前团队成员
+                const teamMembers = document.querySelectorAll('.team-member');
+                const typeCounts = {};
+                
+                teamMembers.forEach(member => {
+                    const typeId = member.querySelector('.rounded-full span').textContent;
+                    typeCounts[typeId] = (typeCounts[typeId] || 0) + 1;
+                });
+                
+                // 更新图表数据
+                const labels = [];
+                const data = [];
+                const backgroundColors = [];
+                
+                for (const typeId in typeCounts) {
+                    const typeNames = {
+                        '1': '完美型',
+                        '2': '助人型',
+                        '3': '成就型',
+                        '4': '独特型',
+                        '5': '理智型',
+                        '6': '忠诚型',
+                        '7': '活跃型',
+                        '8': '领袖型',
+                        '9': '和平型'
+                    };
+                    
+                    const colorMap = {
+                        '1': '#ef4444',
+                        '2': '#f97316',
+                        '3': '#eab308',
+                        '4': '#8b5cf6',
+                        '5': '#3b82f6',
+                        '6': '#10b981',
+                        '7': '#f43f5e',
+                        '8': '#22c55e',
+                        '9': '#0ea5e9'
+                    };
+                    
+                    labels.push(typeNames[typeId]);
+                    data.push(typeCounts[typeId]);
+                    backgroundColors.push(colorMap[typeId]);
+                }
+                
+                ctx.chart.data.labels = labels;
+                ctx.chart.data.datasets[0].data = data;
+                ctx.chart.data.datasets[0].backgroundColor = backgroundColors;
+                ctx.chart.update();
+            }
+        }
+        
+        // 为Chart.js添加chart属性
+        Chart.prototype.canvas.chart = Chart.prototype;
+        
+        // 保存数据功能
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM已加载，初始化保存功能...');
+            
+            // 下载测试报告功能
+            const downloadResultButton = document.getElementById('download-result');
+            console.log('下载测试报告按钮:', downloadResultButton);
+            if (downloadResultButton) {
+                downloadResultButton.addEventListener('click', function() {
+                    console.log('下载测试报告按钮被点击');
+                    // 添加按钮点击效果
+                    this.classList.add('bg-green-600');
+                    setTimeout(() => {
+                        this.classList.remove('bg-green-600');
+                    }, 200);
+                    
+                    try {
+                        // 首先尝试直接从页面获取测试结果（如果用户未保存但在结果页面）
+                        const primaryTypeElement = document.getElementById('primary-type');
+                        if (primaryTypeElement) {
+                            console.log('直接从页面获取测试结果数据');
+                            
+                            const primaryTypeSpan = primaryTypeElement.querySelector('.rounded-full span');
+                            const primaryTypeNameElement = primaryTypeElement.querySelector('h5');
+                            const primaryTypeTraitElement = primaryTypeElement.querySelector('p');
+                            
+                            if (primaryTypeSpan && primaryTypeNameElement && primaryTypeTraitElement) {
+                                const primaryType = primaryTypeSpan.textContent;
+                                const primaryTypeName = primaryTypeNameElement.textContent;
+                                const primaryTypeTrait = primaryTypeTraitElement.textContent;
+                                
+                                // 获取测试结果解读
+                                const resultInterpretations = [];
+                                document.querySelectorAll('#test-result p').forEach(p => {
+                                    resultInterpretations.push(p.textContent);
+                                });
+                                
+                                // 创建测试结果数据
+                                const testResult = {
+                                    type: parseInt(primaryType),
+                                    typeName: primaryTypeName,
+                                    typeTrait: primaryTypeTrait,
+                                    interpretations: resultInterpretations,
+                                    timestamp: new Date().toISOString()
+                                };
+                                
+                                // 自动保存到本地存储
+                                localStorage.setItem('enneagramTestResult', JSON.stringify(testResult));
+                                console.log('自动保存测试结果到localStorage');
+                                
+                                // 创建报告内容
+                                createAndDownloadReport(testResult);
+                                return;
+                            }
+                        }
+                        
+                        // 如果页面上没有测试结果，尝试从localStorage获取
+                        const savedTestResult = localStorage.getItem('enneagramTestResult');
+                        if (!savedTestResult) {
+                            throw new Error('没有找到保存的测试结果！请先完成测试并保存结果。');
+                        }
+                        
+                        console.log('从localStorage获取测试结果数据');
+                        const testResult = JSON.parse(savedTestResult);
+                        createAndDownloadReport(testResult);
+                        
+                    } catch (error) {
+                        console.error('生成测试报告失败:', error);
+                        alert('生成测试报告失败: ' + error.message);
+                    }
+                });
+            }
+            
+            // 创建并下载报告
+            function createAndDownloadReport(testResult) {
+                try {
+                    // 创建报告内容
+                    let reportContent = "九型人格测试报告\n";
+                    reportContent += "==================\n\n";
+                    reportContent += `测试日期: ${new Date(testResult.timestamp).toLocaleString()}\n\n`;
+                    reportContent += `您的主要人格类型: ${testResult.typeName} (${testResult.type}号)\n`;
+                    reportContent += `核心特质: ${testResult.typeTrait}\n\n`;
+                    reportContent += "测试结果解读:\n";
+                    reportContent += "-------------\n";
+                    testResult.interpretations.forEach((interpretation, index) => {
+                        reportContent += `${index + 1}. ${interpretation}\n\n`;
+                    });
+                    
+                    // 添加额外信息
+                    reportContent += "\n关于九型人格:\n";
+                    reportContent += "九型人格是一种深入人类内在动机的性格模型，帮助您了解自己的核心动机、优势和成长方向。\n";
+                    reportContent += "要深入了解您的人格类型，建议查看详细解析并探索人际关系改善和职场角色适配建议。\n\n";
+                    reportContent += "星芒测评社 出品\n";
+                    reportContent += "© 2025 九型人格成长手册\n";
+                    
+                    // 创建Blob对象
+                    const blob = new Blob([reportContent], { type: 'text/plain' });
+                    
+                    // 创建下载链接
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = `九型人格测试报告_${testResult.typeName}.txt`;
+                    
+                    // 触发下载
+                    document.body.appendChild(a);
+                    a.click();
+                    
+                    // 清理
+                    setTimeout(() => {
+                        document.body.removeChild(a);
+                        URL.revokeObjectURL(url);
+                    }, 0);
+                    
+                    console.log('测试报告已生成并开始下载');
+                    alert('测试报告已成功生成并开始下载！');
+                } catch (error) {
+                    console.error('创建报告失败:', error);
+                    throw error;
+                }
+            }
+            
+            // 保存测试结果
+            const saveTestResultButton = document.getElementById('save-test-result');
+            console.log('保存测试结果按钮:', saveTestResultButton);
+            if (saveTestResultButton) {
+                saveTestResultButton.addEventListener('click', function() {
+                    console.log('保存测试结果按钮被点击');
+                    // 添加按钮点击效果
+                    this.classList.add('bg-green-600');
+                    setTimeout(() => {
+                        this.classList.remove('bg-green-600');
+                    }, 200);
+                    
+                    try {
+                        // 获取当前选中的人格类型
+                        const primaryTypeElement = document.getElementById('primary-type');
+                        if (!primaryTypeElement) {
+                            throw new Error('未找到测试结果元素！请先完成测试。');
+                        }
+                        
+                        const primaryTypeSpan = primaryTypeElement.querySelector('.rounded-full span');
+                        const primaryTypeNameElement = primaryTypeElement.querySelector('h5');
+                        const primaryTypeTraitElement = primaryTypeElement.querySelector('p');
+                        
+                        if (!primaryTypeSpan || !primaryTypeNameElement || !primaryTypeTraitElement) {
+                            throw new Error('测试结果元素结构不正确');
+                        }
+                        
+                        const primaryType = primaryTypeSpan.textContent;
+                        const primaryTypeName = primaryTypeNameElement.textContent;
+                        const primaryTypeTrait = primaryTypeTraitElement.textContent;
+                        
+                        // 获取测试结果解读
+                        const resultInterpretations = [];
+                        document.querySelectorAll('#test-result p').forEach(p => {
+                            resultInterpretations.push(p.textContent);
+                        });
+                        
+                        // 保存到本地存储
+                        const testResultData = {
+                            type: parseInt(primaryType),
+                            typeName: primaryTypeName,
+                            typeTrait: primaryTypeTrait,
+                            interpretations: resultInterpretations,
+                            timestamp: new Date().toISOString()
+                        };
+                        
+                        localStorage.setItem('enneagramTestResult', JSON.stringify(testResultData));
+                        console.log('测试结果已保存到localStorage:', testResultData);
+                        
+                        // 显示保存成功提示
+                        alert('测试结果已成功保存！');
+                    } catch (error) {
+                        console.error('保存测试结果失败:', error);
+                        alert('保存失败: ' + error.message);
+                    }
+                });
+            }
+            
+            // 保存人际关系指南
+            const saveRelationshipDataButton = document.getElementById('save-relationship-data');
+            console.log('保存人际关系指南按钮:', saveRelationshipDataButton);
+            if (saveRelationshipDataButton) {
+                saveRelationshipDataButton.addEventListener('click', function() {
+                    console.log('保存人际关系指南按钮被点击');
+                    // 添加按钮点击效果
+                    this.classList.add('bg-green-600');
+                    setTimeout(() => {
+                        this.classList.remove('bg-green-600');
+                    }, 200);
+                    // 获取当前选中的人格类型
+                    const activeButton = document.querySelector('.relationship-type-btn.active');
+                    if (!activeButton) {
+                        console.error('未找到选中的人际关系类型按钮');
+                        alert('保存失败：请先选择一个人格类型');
+                        return;
+                    }
+                    
+                    const typeId = activeButton.getAttribute('data-type');
+                    const typeName = activeButton.textContent;
+                    
+                    if (!typeId || !typeName) {
+                        console.error('人格类型信息不完整');
+                        alert('保存失败：人格类型信息不完整');
+                        return;
+                    }
+                    
+                    // 获取人际关系指南内容
+                    const relationshipTitle = document.querySelector('#relationships h3');
+                    const communicationStyle = document.querySelector('#relationships .mb-8:nth-child(2)');
+                    const interactionGuides = document.querySelector('#relationships .mb-8:nth-child(3)');
+                    const improvementStrategies = document.querySelector('#relationships .mb-8:nth-child(4)');
+                    const conflictResolution = document.querySelector('#relationships .bg-blue-50');
+                    
+                    if (!relationshipTitle || !communicationStyle || !interactionGuides || !improvementStrategies || !conflictResolution) {
+                        console.error('人际关系指南内容不完整');
+                        alert('保存失败：人际关系指南内容不完整');
+                        return;
+                    }
+                    
+                    // 保存到本地存储
+                    const relationshipData = {
+                        type: parseInt(typeId),
+                        typeName: typeName,
+                        title: relationshipTitle.textContent,
+                        communicationStyle: communicationStyle.innerHTML,
+                        interactionGuides: interactionGuides.innerHTML,
+                        improvementStrategies: improvementStrategies.innerHTML,
+                        conflictResolution: conflictResolution.innerHTML,
+                        timestamp: new Date().toISOString()
+                    };
+                    
+                    try {
+                        localStorage.setItem('enneagramRelationshipData', JSON.stringify(relationshipData));
+                        console.log('人际关系指南已保存到localStorage:', relationshipData);
+                        
+                        // 显示保存成功提示
+                        alert('人际关系指南已成功保存！');
+                    } catch (error) {
+                        console.error('保存人际关系指南失败:', error);
+                        alert('保存失败：' + error.message);
+                    }
+                });
+            }
+            
+            // 保存职业适配信息
+            const saveCareerDataButton = document.getElementById('save-career-data');
+            console.log('保存职业适配信息按钮:', saveCareerDataButton);
+            if (saveCareerDataButton) {
+                saveCareerDataButton.addEventListener('click', function() {
+                    console.log('保存职业适配信息按钮被点击');
+                    // 添加按钮点击效果
+                    this.classList.add('bg-green-600');
+                    setTimeout(() => {
+                        this.classList.remove('bg-green-600');
+                    }, 200);
+                    // 获取当前选中的人格类型
+                    const activeButton = document.querySelector('.career-type-btn.active');
+                    if (!activeButton) {
+                        console.error('未找到选中的职业适配类型按钮');
+                        alert('保存失败：请先选择一个人格类型');
+                        return;
+                    }
+                    
+                    const typeId = activeButton.getAttribute('data-type');
+                    const typeName = activeButton.textContent;
+                    
+                    if (!typeId || !typeName) {
+                        console.error('人格类型信息不完整');
+                        alert('保存失败：人格类型信息不完整');
+                        return;
+                    }
+                    
+                    // 获取职业适配信息内容
+                    const careerContentElement = document.querySelector('#career .bg-white.rounded-xl.shadow-md');
+                    if (!careerContentElement) {
+                        console.error('未找到职业适配信息内容');
+                        alert('保存失败：无法获取职业适配信息内容');
+                        return;
+                    }
+                    
+                    const careerContent = careerContentElement.innerHTML;
+                    
+                    // 保存到本地存储
+                    const careerData = {
+                        type: parseInt(typeId),
+                        typeName: typeName,
+                        content: careerContent,
+                        timestamp: new Date().toISOString()
+                    };
+                    
+                    try {
+                        localStorage.setItem('enneagramCareerData', JSON.stringify(careerData));
+                        console.log('职业适配信息已保存到localStorage:', careerData);
+                        
+                        // 显示保存成功提示
+                        alert('职业适配信息已成功保存！');
+                    } catch (error) {
+                        console.error('保存职业适配信息失败:', error);
+                        alert('保存失败：' + error.message);
+                    }
+                });
+            }
+            
+            // 保存团队配置
+            const saveTeamDataButton = document.getElementById('save-team-data');
+            console.log('保存团队配置按钮:', saveTeamDataButton);
+            if (saveTeamDataButton) {
+                saveTeamDataButton.addEventListener('click', function() {
+                    console.log('保存团队配置按钮被点击');
+                    // 添加按钮点击效果
+                    this.classList.add('bg-green-600');
+                    setTimeout(() => {
+                        this.classList.remove('bg-green-600');
+                    }, 200);
+                    // 获取当前团队成员
+                    const teamMembers = [];
+                    const memberElements = document.querySelectorAll('.team-member');
+                    
+                    if (memberElements.length === 0) {
+                        console.error('没有添加任何团队成员');
+                        alert('保存失败：请先添加至少一名团队成员');
+                        return;
+                    }
+                    
+                    let isValid = true;
+                    memberElements.forEach(member => {
+                        const typeIdSpan = member.querySelector('.rounded-full span');
+                        const typeNameElement = member.querySelector('h5');
+                        const typeTraitElement = member.querySelector('p');
+                        
+                        if (!typeIdSpan || !typeNameElement || !typeTraitElement) {
+                            console.error('团队成员信息不完整');
+                            isValid = false;
+                            return;
+                        }
+                        
+                        const typeId = typeIdSpan.textContent;
+                        const typeName = typeNameElement.textContent;
+                        const typeTrait = typeTraitElement.textContent;
+                        
+                        if (!typeId || !typeName || !typeTrait) {
+                            console.error('团队成员信息为空');
+                            isValid = false;
+                            return;
+                        }
+                        
+                        teamMembers.push({
+                            type: parseInt(typeId),
+                            typeName: typeName,
+                            typeTrait: typeTrait
+                        });
+                    });
+                    
+                    if (!isValid) {
+                        alert('保存失败：团队成员信息不完整');
+                        return;
+                    }
+                    
+                    // 获取团队分析
+                    const teamAnalysisElement = document.querySelector('#team .bg-blue-50');
+                    if (!teamAnalysisElement) {
+                        console.error('未找到团队分析内容');
+                        alert('保存失败：无法获取团队分析内容');
+                        return;
+                    }
+                    
+                    const teamAnalysis = teamAnalysisElement.innerHTML;
+                    
+                    // 保存到本地存储
+                    const teamData = {
+                        members: teamMembers,
+                        analysis: teamAnalysis,
+                        timestamp: new Date().toISOString()
+                    };
+                    
+                    try {
+                        localStorage.setItem('enneagramTeamData', JSON.stringify(teamData));
+                        console.log('团队配置已保存到localStorage:', teamData);
+                        
+                        // 显示保存成功提示
+                        alert('团队配置已成功保存！');
+                    } catch (error) {
+                        console.error('保存团队配置失败:', error);
+                        alert('保存失败：' + error.message);
+                    }
+                });
+            }
+            
+            // 保存所有数据
+            const saveAllDataButton = document.getElementById('save-all-data');
+            console.log('保存所有数据按钮:', saveAllDataButton);
+            if (saveAllDataButton) {
+                saveAllDataButton.addEventListener('click', function() {
+                    console.log('保存所有数据按钮被点击');
+                    // 添加按钮点击效果
+                    this.classList.add('bg-green-600');
+                    setTimeout(() => {
+                        this.classList.remove('bg-green-600');
+                    }, 200);
+                    
+                    let savedCount = 0;
+                    let errorCount = 0;
+                    
+                    // 保存测试结果（如果已完成测试）
+                    try {
+                        if (document.getElementById('test-result') && !document.getElementById('test-result').classList.contains('hidden')) {
+                            const primaryTypeElement = document.getElementById('primary-type');
+                            if (primaryTypeElement) {
+                                const primaryTypeSpan = primaryTypeElement.querySelector('.rounded-full span');
+                                const primaryTypeNameElement = primaryTypeElement.querySelector('h5');
+                                const primaryTypeTraitElement = primaryTypeElement.querySelector('p');
+                                
+                                if (primaryTypeSpan && primaryTypeNameElement && primaryTypeTraitElement) {
+                                    const primaryType = primaryTypeSpan.textContent;
+                                    const primaryTypeName = primaryTypeNameElement.textContent;
+                                    const primaryTypeTrait = primaryTypeTraitElement.textContent;
+                                    
+                                    const resultInterpretations = [];
+                                    document.querySelectorAll('#test-result p').forEach(p => {
+                                        resultInterpretations.push(p.textContent);
+                                    });
+                                    
+                                    const testResultData = {
+                                        type: parseInt(primaryType),
+                                        typeName: primaryTypeName,
+                                        typeTrait: primaryTypeTrait,
+                                        interpretations: resultInterpretations,
+                                        timestamp: new Date().toISOString()
+                                    };
+                                    
+                                    localStorage.setItem('enneagramTestResult', JSON.stringify(testResultData));
+                                    savedCount++;
+                                    console.log('测试结果已保存');
+                                }
+                            }
+                        }
+                    } catch (error) {
+                        console.error('保存测试结果失败:', error);
+                        errorCount++;
+                    }
+                    
+                    // 保存人际关系指南（如果已选择类型）
+                    try {
+                        const relationshipActiveButton = document.querySelector('.relationship-type-btn.active');
+                        if (relationshipActiveButton) {
+                            const typeId = relationshipActiveButton.getAttribute('data-type');
+                            const typeName = relationshipActiveButton.textContent;
+                            
+                            if (typeId && typeName) {
+                                const relationshipTitle = document.querySelector('#relationships h3');
+                                const communicationStyle = document.querySelector('#relationships .mb-8:nth-child(2)');
+                                const interactionGuides = document.querySelector('#relationships .mb-8:nth-child(3)');
+                                const improvementStrategies = document.querySelector('#relationships .mb-8:nth-child(4)');
+                                const conflictResolution = document.querySelector('#relationships .bg-blue-50');
+                                
+                                if (relationshipTitle && communicationStyle && interactionGuides && improvementStrategies && conflictResolution) {
+                                    const relationshipData = {
+                                        type: parseInt(typeId),
+                                        typeName: typeName,
+                                        title: relationshipTitle.textContent,
+                                        communicationStyle: communicationStyle.innerHTML,
+                                        interactionGuides: interactionGuides.innerHTML,
+                                        improvementStrategies: improvementStrategies.innerHTML,
+                                        conflictResolution: conflictResolution.innerHTML,
+                                        timestamp: new Date().toISOString()
+                                    };
+                                    
+                                    localStorage.setItem('enneagramRelationshipData', JSON.stringify(relationshipData));
+                                    savedCount++;
+                                    console.log('人际关系指南已保存');
+                                }
+                            }
+                        }
+                    } catch (error) {
+                        console.error('保存人际关系指南失败:', error);
+                        errorCount++;
+                    }
+                    
+                    // 保存职业适配信息（如果已选择类型）
+                    try {
+                        const careerActiveButton = document.querySelector('.career-type-btn.active');
+                        if (careerActiveButton) {
+                            const typeId = careerActiveButton.getAttribute('data-type');
+                            const typeName = careerActiveButton.textContent;
+                            
+                            if (typeId && typeName) {
+                                const careerContentElement = document.querySelector('#career .bg-white.rounded-xl.shadow-md');
+                                if (careerContentElement) {
+                                    const careerContent = careerContentElement.innerHTML;
+                                    
+                                    const careerData = {
+                                        type: parseInt(typeId),
+                                        typeName: typeName,
+                                        content: careerContent,
+                                        timestamp: new Date().toISOString()
+                                    };
+                                    
+                                    localStorage.setItem('enneagramCareerData', JSON.stringify(careerData));
+                                    savedCount++;
+                                    console.log('职业适配信息已保存');
+                                }
+                            }
+                        }
+                    } catch (error) {
+                        console.error('保存职业适配信息失败:', error);
+                        errorCount++;
+                    }
+                    
+                    // 保存团队配置（如果有团队成员）
+                    try {
+                        const teamMembers = document.querySelectorAll('.team-member');
+                        if (teamMembers.length > 0) {
+                            const teamMembersData = [];
+                            let isValid = true;
+                            
+                            teamMembers.forEach(member => {
+                                const typeIdSpan = member.querySelector('.rounded-full span');
+                                const typeNameElement = member.querySelector('h5');
+                                const typeTraitElement = member.querySelector('p');
+                                
+                                if (typeIdSpan && typeNameElement && typeTraitElement) {
+                                    const typeId = typeIdSpan.textContent;
+                                    const typeName = typeNameElement.textContent;
+                                    const typeTrait = typeTraitElement.textContent;
+                                    
+                                    if (typeId && typeName && typeTrait) {
+                                        teamMembersData.push({
+                                            type: parseInt(typeId),
+                                            typeName: typeName,
+                                            typeTrait: typeTrait
+                                        });
+                                    } else {
+                                        isValid = false;
+                                    }
+                                } else {
+                                    isValid = false;
+                                }
+                            });
+                            
+                            if (isValid) {
+                                const teamAnalysisElement = document.querySelector('#team .bg-blue-50');
+                                if (teamAnalysisElement) {
+                                    const teamAnalysis = teamAnalysisElement.innerHTML;
+                                    
+                                    const teamData = {
+                                        members: teamMembersData,
+                                        analysis: teamAnalysis,
+                                        timestamp: new Date().toISOString()
+                                    };
+                                    
+                                    localStorage.setItem('enneagramTeamData', JSON.stringify(teamData));
+                                    savedCount++;
+                                    console.log('团队配置已保存');
+                                }
+                            }
+                        }
+                    } catch (error) {
+                        console.error('保存团队配置失败:', error);
+                        errorCount++;
+                    }
+                    
+                    // 显示保存结果提示
+                    if (savedCount > 0 && errorCount === 0) {
+                        alert(`所有数据已成功保存！共保存了${savedCount}项数据。`);
+                    } else if (savedCount > 0 && errorCount > 0) {
+                        alert(`部分数据已保存！成功保存${savedCount}项，失败${errorCount}项。请查看控制台了解详情。`);
+                    } else if (savedCount === 0 && errorCount > 0) {
+                        alert(`保存失败！所有${errorCount}项数据都未能保存。请查看控制台了解详情。`);
+                    } else {
+                        alert('没有可保存的数据！请先完成测试或选择相关内容。');
+                    }
+                });
+            }
+            
+            // 首页保存数据按钮
+            const saveHomeDataButton = document.getElementById('save-home-data');
+            if (saveHomeDataButton) {
+                saveHomeDataButton.addEventListener('click', function() {
+                    // 检查是否有已保存的数据
+                    const savedData = {
+                        hasTestResult: localStorage.getItem('enneagramTestResult') !== null,
+                        hasRelationshipData: localStorage.getItem('enneagramRelationshipData') !== null,
+                        hasCareerData: localStorage.getItem('enneagramCareerData') !== null,
+                        hasTeamData: localStorage.getItem('enneagramTeamData') !== null,
+                        lastSaved: new Date().toISOString()
+                    };
+                    
+                    localStorage.setItem('enneagramSavedDataInfo', JSON.stringify(savedData));
+                    
+                    alert('数据信息已更新！');
+                });
+            }
+            
+            // 页面加载时检查是否有保存的数据
+            window.addEventListener('load', function() {
+                // 检查是否有保存的测试结果
+                const savedTestResult = localStorage.getItem('enneagramTestResult');
+                if (savedTestResult) {
+                    console.log('找到保存的测试结果:', JSON.parse(savedTestResult));
+                }
+                
+                // 检查是否有保存的人际关系指南
+                const savedRelationshipData = localStorage.getItem('enneagramRelationshipData');
+                if (savedRelationshipData) {
+                    console.log('找到保存的人际关系指南:', JSON.parse(savedRelationshipData));
+                }
+                
+                // 检查是否有保存的职业适配信息
+                const savedCareerData = localStorage.getItem('enneagramCareerData');
+                if (savedCareerData) {
+                    console.log('找到保存的职业适配信息:', JSON.parse(savedCareerData));
+                }
+                
+                // 检查是否有保存的团队配置
+                const savedTeamData = localStorage.getItem('enneagramTeamData');
+                if (savedTeamData) {
+                    console.log('找到保存的团队配置:', JSON.parse(savedTeamData));
+                }
+            });
+        });
+    </script>
+</body>
+</html>
